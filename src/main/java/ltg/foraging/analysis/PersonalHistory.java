@@ -69,7 +69,7 @@ public class PersonalHistory {
 			System.err.println("First action is not leaving the den!");
 			return false;
 		}
-		// There is strict alternance between arrivals and departures
+		// There is strict interleaving between arrivals and departures
 		int lastAction = 1;
 		int counter = 0;
 		for (Action a: actions) {
