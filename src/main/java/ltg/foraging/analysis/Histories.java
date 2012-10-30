@@ -39,4 +39,10 @@ public class Histories {
 		return false;
 	}
 
+	
+	public void computePatchTimes() {
+		for (PersonalHistory ph: th)
+			ph.computePatchTimes();
+	}
+
 }

@@ -85,7 +85,7 @@ public class DataAnalysis {
 	
 	
 	public void doAnalysis() {
-		
+		h.computePatchTimes();
 	}
 	
 	

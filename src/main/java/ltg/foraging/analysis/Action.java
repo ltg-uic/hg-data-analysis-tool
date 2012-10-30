@@ -13,5 +13,10 @@ public class Action {
 		this.patch = patch;
 	}
 	
+	
+	@Override
+	public String toString() {
+		return action + " " + patch;
+	}
 
 }
