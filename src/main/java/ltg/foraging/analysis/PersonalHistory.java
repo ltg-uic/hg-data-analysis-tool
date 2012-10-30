@@ -5,9 +5,14 @@ import java.util.List;
 
 public class PersonalHistory {
 	
+	private static final int patchRichness[] = {10, 10, 15, 15, 20, 20, 0};
+	
 	public String id = null;
 	private List<Action> actions = new ArrayList<Action>();
-	public int[] patchTimes = {0,0,0,0,0,0};
+	public int[] patchTimes = {0,0,0,0,0,0,0};
+	public int[] patchHarvests = {0,0,0,0,0,0,0};
+	public int totalGameTime = -1;
+	public int totalPatchEntries = -1;
 	
 	
 	public PersonalHistory(String id) {
@@ -20,18 +25,51 @@ public class PersonalHistory {
 	}
 	
 	
-	public void computePatchTimes() {
+	public void computePatchTimes(int gameEndTime) {
+		// Check sequence
 		if (!checkActionsSequence())
 			System.exit(-1);
-		int lastTs= actions.get(0).ts;
+		// Compute pairs
+		for (int i=1; i<actions.size()-2; i+=2) {
+			if (actions.get(i).patch.equals(actions.get(i+1).patch)) {
+				if(actions.get(i).patch.equals("fg-den")) {
+					// Den
+					patchTimes[6] += (actions.get(i+1).ts - actions.get(i).ts);
+				} else {
+					// Patches
+					String p = actions.get(i).patch;
+					int pi = Integer.parseInt(p.substring(p.length()-1, p.length()));
+					patchTimes[pi-1] += (actions.get(i+1).ts - actions.get(i).ts);
+					patchHarvests[pi-1] += ( (actions.get(i+1).ts - actions.get(i).ts)*patchRichness[pi-1] );
+				}
+			} else {
+				System.err.println("Patch mismatch!");
+			}
+		}
+		// Compute time at last patch
+		String p = actions.get(actions.size()-1).patch;
+		int pi = Integer.parseInt(p.substring(p.length()-1, p.length()));
+		patchTimes[pi-1] += (gameEndTime-actions.get(actions.size()-1).ts);
+		// Compute total game time
+		for (int i=0; i<patchTimes.length; i++) {
+			totalGameTime += patchTimes[i];
+		}
+		// Compute total patch entries
+		for (Action a: actions) {
+			if (a.action==1) {
+				totalPatchEntries++;
+			}
+		}
 	}
 
 
 	private boolean checkActionsSequence() {
+		// First action is leaving the den
 		if (! (actions.get(0).patch.equals("fg-den") && actions.get(0).action==-1) ) {
 			System.err.println("First action is not leaving the den!");
 			return false;
 		}
+		// There is strict alternance between arrivals and departures
 		int lastAction = 1;
 		int counter = 0;
 		for (Action a: actions) {
@@ -49,6 +87,15 @@ public class PersonalHistory {
 				lastAction = 1;
 			}
 			counter ++;
+		}
+		// Sequence length is EVEN and terminates with an arrival at a patch
+		if (!(actions.size()%2==0)) {
+			System.err.println("Action sequence is corrupted: sequence length is odd");
+			return false; 
+		}
+		if (!(actions.get(actions.size()-1).action==1 && !actions.get(actions.size()-1).patch.equals("fg-den"))) {
+			System.err.println("Action sequence is corrupted: last action is not a patch arrival");
+			return false;
 		}
 		return true;
 	}

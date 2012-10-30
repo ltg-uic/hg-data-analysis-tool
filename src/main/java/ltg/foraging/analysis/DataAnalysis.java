@@ -85,12 +85,13 @@ public class DataAnalysis {
 	
 	
 	public void doAnalysis() {
-		h.computePatchTimes();
+		h.computePatchTimes(gameEndTime);
 	}
 	
 	
 	public void printResults() {
-		System.out.println("Run time: "+(gameEndTime-gameBeginTime)+"s");
+		System.out.println("Total game run time: "+(gameEndTime-gameBeginTime)+"s");
+		h.printResults();
 	}
 
 	
