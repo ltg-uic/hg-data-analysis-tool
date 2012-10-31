@@ -75,6 +75,8 @@ public class Histories {
 		// Scroll personal stories and fill the distribution
 		for (PersonalHistory ph: th) 
 			addHistoryToDistribution(gameBeginTime, gameEndTime, ph);
+		// DEBUG: print distribution
+		//printKidsDistribution();
 		// Check that at any given ts we have the same number of kids
 		int kidsN = 0;
 		for (int j=0; j<patchKidsDist[0].length; j++) {
@@ -86,8 +88,11 @@ public class Histories {
 				kn += patchKidsDist[i][j];
 			}
 			if (kn!=kidsN){ 
-				System.err.println("Kids are multiplying or shrinking... not good... terminating..,");
-				System.exit(-1);
+				System.err.println("Kids are multiplying or shrinking, not good! TS=" + i + " We fixed it but you should check");
+				// Fix error by putting coping previous state into current
+				for (int j=0; j<patchKidsDist[0].length; j++) {
+					patchKidsDist[i][j] = patchKidsDist[i-1][j];
+				}
 			}
 		}
 	}
@@ -133,15 +138,6 @@ public class Histories {
 
 
 	public void printResults() {
-		// Print kids' distribution over patches
-		//		System.out.format("idx | 01 | 02 | 03 | 04 | 05 | 06 | dn%n");
-		//		for (int i=0; i<patchKidsDist.length; i++ ) {
-		//			System.out.format("%3d", i);
-		//			for (int j=0; j<patchKidsDist[0].length; j++) {
-		//				System.out.format(" | %2d", patchKidsDist[i][j]);
-		//			}
-		//			System.out.format("%n");
-		//		}
 		// Print time at patches, total game time, harvest at patches and number of patch entries
 		System.out.format("tagId   || -1- | -2- | -3- | -4- | -5- | -6- | den || hv-1 | hv-2 | hv-3 | hv-4 | hv-5 | hv-6 || TPE%n");
 		System.out.format("-----------------------------------------------------------------------------------------------------------%n");
@@ -158,6 +154,20 @@ public class Histories {
 		System.out.format("TOTAL   || %3d | %3d | %3d | %3d | %3d | %3d | %3d %n", 
 				perPatchTotalTimes[0], perPatchTotalTimes[1], perPatchTotalTimes[2], perPatchTotalTimes[3], 
 				perPatchTotalTimes[4], perPatchTotalTimes[5], perPatchTotalTimes[6]);
+	}
+	
+	
+	public void printKidsDistribution() {
+		// Print kids' distribution over patches
+		System.out.format("idx | 01 | 02 | 03 | 04 | 05 | 06 | dn%n");
+		for (int i=0; i<patchKidsDist.length; i++ ) {
+			System.out.format("%3d", i);
+			for (int j=0; j<patchKidsDist[0].length; j++) {
+				System.out.format(" | %2d", patchKidsDist[i][j]);
+			}
+			System.out.format("%n");
+		}
+
 	}
 
 }
