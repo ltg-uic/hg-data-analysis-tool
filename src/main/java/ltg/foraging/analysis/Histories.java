@@ -45,6 +45,10 @@ public class Histories {
 	public void computePatchTimes(int gameEndTime) {
 		for (PersonalHistory ph: th)
 			ph.computePatchTimes(gameEndTime);
+	}
+
+
+	public void computeTotalPatchTimes() {
 		for (PersonalHistory ph: th) {
 			for (int i=0; i<perPatchTotalTimes.length; i++) {
 				perPatchTotalTimes[i] += ph.patchTimes[i];
@@ -53,42 +57,24 @@ public class Histories {
 	}
 
 
-	public void printResults() {
-		// Print kids' distribution
-		System.out.format("idx | 01 | 02 | 03 | 04 | 05 | 06 | dn%n");
-		for (int i=0; i<patchKidsDist.length; i++ ) {
-			System.out.format("%3d", i);
-			for (int j=0; j<patchKidsDist[0].length; j++) {
-				System.out.format(" | %2d", patchKidsDist[i][j]);
-			}
-			System.out.format("%n");
-		}
-		for (PersonalHistory ph: th)
-			System.out.format("%s || " +
-					"%3d | %3d | %3d | %3d | %3d | %3d | %3d || %3d ||" +
-					"%4d | %4d | %4d | %4d | %4d | %4d || %3d" +
-					"%n", 
-					ph.id, 
-					ph.patchTimes[0], ph.patchTimes[1], ph.patchTimes[2], ph.patchTimes[3], ph.patchTimes[4], ph.patchTimes[5],ph.patchTimes[6], ph.totalGameTime, 
-					ph.patchHarvests[0], ph.patchHarvests[1], ph.patchHarvests[2], ph.patchHarvests[3], ph.patchHarvests[4], ph.patchHarvests[5], 
-					ph.totalPatchEntries);
-		System.out.format("        || %3d | %3d | %3d | %3d | %3d | %3d | %3d %n", 
-				perPatchTotalTimes[0], perPatchTotalTimes[1], perPatchTotalTimes[2], perPatchTotalTimes[3], 
-				perPatchTotalTimes[4], perPatchTotalTimes[5], perPatchTotalTimes[6]);
+	public void computeHarvest(int gameBeginTime, int gameEndTime) {
+		computePatchDistribution(gameBeginTime, gameEndTime);
+		for (PersonalHistory ph: th) 
+			ph.computeHarvest(gameBeginTime, gameEndTime, patchKidsDist);
 	}
 
 
-	public void computePatchDistribution(int gameBeginTime, int gameEndTime) {
-		// Init array
+	private void computePatchDistribution(int gameBeginTime, int gameEndTime) {
+		// Init array with 0s
 		int cols = 7;
 		int rows = gameEndTime-gameBeginTime;
 		patchKidsDist = new int[rows][cols];
 		for (int i=0; i<rows; i++ ) 
 			for (int j=0; j<cols; j++)
 				patchKidsDist[i][j]=0;
-		// Scroll personal stories and fill
+		// Scroll personal stories and fill the distribution
 		for (PersonalHistory ph: th) 
-			addHistoryToDistribution(gameBeginTime, gameEndTime, rows, ph);
+			addHistoryToDistribution(gameBeginTime, gameEndTime, ph);
 		// Check that at any given ts we have the same number of kids
 		int kidsN = 0;
 		for (int j=0; j<patchKidsDist[0].length; j++) {
@@ -104,11 +90,10 @@ public class Histories {
 				System.exit(-1);
 			}
 		}
-		System.out.println("There are always " + kidsN + " kids, hurray!");
 	}
 
 
-	private void addHistoryToDistribution(int gBt, int gEt, int rows, PersonalHistory ph) {
+	private void addHistoryToDistribution(int gBt, int gEt, PersonalHistory ph) {
 		int ts = gBt;
 		// Initial den time
 		int leaveDenTs = -1;
@@ -118,14 +103,18 @@ public class Histories {
 			patchKidsDist[ts-gBt][6]++;
 		}
 		// Arrivals and departures from patches
-		for (int i=1; i<ph.actions.size()-1; i+=2) {
+		for (int i=1; i<ph.actions.size()-2; i+=2) {
 			for (ts=ph.actions.get(i).ts; ts<ph.actions.get(i+1).ts; ts++) {
-				if(ph.actions.get(i).patch.equals("fg-den")) {
-					patchKidsDist[ts-gBt][6]++; // Den
+				if (ph.actions.get(i).patch.equals(ph.actions.get(i+1).patch)) {
+					if(ph.actions.get(i).patch.equals("fg-den")) {
+						patchKidsDist[ts-gBt][6]++; // Den
+					} else {
+						String p = ph.actions.get(i).patch; // Other patches
+						int pi = Integer.parseInt(p.substring(p.length()-1, p.length()))-1;
+						patchKidsDist[ts-gBt][pi]++;
+					}
 				} else {
-					String p = ph.actions.get(i).patch; // Other patches
-					int pi = Integer.parseInt(p.substring(p.length()-1, p.length()));
-					patchKidsDist[ts-gBt][pi]++;
+					System.err.println("Patch mismatch!");
 				}
 			}
 		}
@@ -136,10 +125,39 @@ public class Histories {
 				patchKidsDist[ts-gBt][6]++; // Den
 			} else {
 				String p = ph.actions.get(ph.actions.size()-1).patch; // Other patches
-				int pi = Integer.parseInt(p.substring(p.length()-1, p.length()));
+				int pi = Integer.parseInt(p.substring(p.length()-1, p.length())) - 1;
 				patchKidsDist[ts-gBt][pi]++;
 			}
 		}
+	}
+
+
+	public void printResults() {
+		// Print kids' distribution over patches
+		//		System.out.format("idx | 01 | 02 | 03 | 04 | 05 | 06 | dn%n");
+		//		for (int i=0; i<patchKidsDist.length; i++ ) {
+		//			System.out.format("%3d", i);
+		//			for (int j=0; j<patchKidsDist[0].length; j++) {
+		//				System.out.format(" | %2d", patchKidsDist[i][j]);
+		//			}
+		//			System.out.format("%n");
+		//		}
+		// Print time at patches, total game time, harvest at patches and number of patch entries
+		System.out.format("tagId   || -1- | -2- | -3- | -4- | -5- | -6- | den || hv-1 | hv-2 | hv-3 | hv-4 | hv-5 | hv-6 || TPE%n");
+		System.out.format("-----------------------------------------------------------------------------------------------------------%n");
+		for (PersonalHistory ph: th)
+			System.out.format("%s || " +
+					"%3d | %3d | %3d | %3d | %3d | %3d | %3d ||" +
+					" %4d | %4d | %4d | %4d | %4d | %4d || %3d" +
+					"%n", 
+					ph.id, 
+					ph.patchTimes[0], ph.patchTimes[1], ph.patchTimes[2], ph.patchTimes[3], ph.patchTimes[4], ph.patchTimes[5],ph.patchTimes[6], 
+					ph.patchHarvests[0], ph.patchHarvests[1], ph.patchHarvests[2], ph.patchHarvests[3], ph.patchHarvests[4], ph.patchHarvests[5], 
+					ph.totalPatchEntries);
+		// Print cumulative time spent at patches
+		System.out.format("TOTAL   || %3d | %3d | %3d | %3d | %3d | %3d | %3d %n", 
+				perPatchTotalTimes[0], perPatchTotalTimes[1], perPatchTotalTimes[2], perPatchTotalTimes[3], 
+				perPatchTotalTimes[4], perPatchTotalTimes[5], perPatchTotalTimes[6]);
 	}
 
 }

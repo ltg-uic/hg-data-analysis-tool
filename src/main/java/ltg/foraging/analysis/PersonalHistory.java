@@ -4,27 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PersonalHistory {
-	
+
 	private static final int patchRichness[] = {10, 10, 15, 15, 20, 20, 0};
-	
+
 	public List<Action> actions = new ArrayList<Action>();
 	public String id = null;
 	public int[] patchTimes = {0,0,0,0,0,0,0};
-	public int[] patchHarvests = {0,0,0,0,0,0,0};
+	public int[] patchHarvests = {0,0,0,0,0,0};
 	public int totalGameTime = -1;
 	public int totalPatchEntries = -1;
-	
-	
+
+
 	public PersonalHistory(String id) {
 		this.id = id;
 	}
-	
-	
+
+
 	public void addAction(int ts, int action, String patch) {
 		actions.add(new Action(ts, action, patch));
 	}
-	
-	
+
+
 	public void computePatchTimes(int gameEndTime) {
 		// Check sequence
 		if (!checkActionsSequence())
@@ -38,9 +38,8 @@ public class PersonalHistory {
 				} else {
 					// Patches
 					String p = actions.get(i).patch;
-					int pi = Integer.parseInt(p.substring(p.length()-1, p.length()));
-					patchTimes[pi-1] += (actions.get(i+1).ts - actions.get(i).ts);
-					patchHarvests[pi-1] += ( (actions.get(i+1).ts - actions.get(i).ts)*patchRichness[pi-1] );
+					int pi = Integer.parseInt(p.substring(p.length()-1, p.length())) - 1;
+					patchTimes[pi] += (actions.get(i+1).ts - actions.get(i).ts);
 				}
 			} else {
 				System.err.println("Patch mismatch!");
@@ -48,9 +47,9 @@ public class PersonalHistory {
 		}
 		// Compute time at last patch
 		String p = actions.get(actions.size()-1).patch;
-		int pi = Integer.parseInt(p.substring(p.length()-1, p.length()));
-		patchTimes[pi-1] += (gameEndTime-actions.get(actions.size()-1).ts);
-		// Compute total game time
+		int pi = Integer.parseInt(p.substring(p.length()-1, p.length())) -1;
+		patchTimes[pi] += (gameEndTime-actions.get(actions.size()-1).ts);
+		// Compute total game time per kid
 		for (int i=0; i<patchTimes.length; i++) {
 			totalGameTime += patchTimes[i];
 		}
@@ -100,6 +99,34 @@ public class PersonalHistory {
 		}
 		return true;
 	}
-	
+
+
+
+	public void computeHarvest(int gBt, int gEt, int[][] kidsAtPatch) {
+		// Compute pairs
+		for (int i=1; i<actions.size()-2; i+=2) {
+			if (actions.get(i).patch.equals(actions.get(i+1).patch)) {
+				if(actions.get(i).patch.equals("fg-den")) {
+					// Den doesn't give you points!
+					continue;
+				}
+				// Patches
+				String p = actions.get(i).patch;
+				int pi = Integer.parseInt(p.substring(p.length()-1, p.length())) - 1;
+				for (int ts=actions.get(i).ts; ts<actions.get(i+1).ts; ts++) {
+					patchHarvests[pi] += patchRichness[pi]/kidsAtPatch[ts-gBt][pi];
+				}
+			} else {
+				System.err.println("Patch mismatch!");
+			}
+		}
+		// Compute time at last patch
+		String p = actions.get(actions.size()-1).patch;
+		int pi = Integer.parseInt(p.substring(p.length()-1, p.length())) - 1;
+		for (int ts=actions.get(actions.size()-1).ts; ts<gEt; ts++) {
+			patchHarvests[pi] += patchRichness[pi]/kidsAtPatch[ts-gBt][pi];
+		}
+	}
+
 
 }

@@ -21,15 +21,26 @@ public class DataAnalysis {
 	private int gameEndTime = -1;
 	private Histories h = new Histories();
 	
+	
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		DataAnalysis da = new DataAnalysis();
+		da.importData();
+		da.doAnalysis();
+		da.printResults();
+	}
+	
 
 	public void importData() {
 		JsonParser parser = new JsonParser();
 		List<JsonObject> jsonData = new ArrayList<JsonObject>();
-		// Read from file into jsonData
+		// Read from file into jsonData list of json objects
 		FileInputStream fstream = null;
 		try {
-//			fstream = new FileInputStream("/Users/tebemis/Desktop/Dropbox/Foraging_Data_Analysis/foraging_pilot_oct12_log_1.json");
-			fstream = new FileInputStream("/Users/tebemis/Desktop/Dropbox/Foraging_Data_Analysis/foraging_pilot_oct12_log_2.json");
+			fstream = new FileInputStream("/Users/tebemis/Desktop/Dropbox/Foraging_Data_Analysis/foraging_pilot_oct12_log_1.json");
+//			fstream = new FileInputStream("/Users/tebemis/Desktop/Dropbox/Foraging_Data_Analysis/foraging_pilot_oct12_log_2.json");
 //			fstream = new FileInputStream("/Users/tebemis/Desktop/Dropbox/Foraging_Data_Analysis/foraging_pilot_oct12_log_3.json");
 			DataInputStream in = new DataInputStream(fstream);
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
@@ -58,7 +69,7 @@ public class DataAnalysis {
 		} catch (IOException e) {
 			System.err.println("Impossible to close file");
 		}
-		// Check sequence is ordered
+		// Check sequence is ordered by timestamp
 		int lastTs = -1;
 		for (JsonObject o: jsonData) {
 			int currentTs = getTs(o);
@@ -67,7 +78,7 @@ public class DataAnalysis {
 			else
 				System.err.println("Sequence is not ordered properly... BAD!");
 		}
-		// Parse JSON objects into data structure
+		// Parse JSON objects into individual histories
 		for (JsonObject o: jsonData) {
 			if (o.getString("event").equals("game_reset")) {
 				gameBeginTime =  getTs(o);
@@ -94,13 +105,17 @@ public class DataAnalysis {
 	
 	
 	public void doAnalysis() {
+		// Compute amount of time spent by every kid at every patch 
 		h.computePatchTimes(gameEndTime);
-		h.computePatchDistribution(gameBeginTime, gameEndTime);
+		// Total time spent at the six patches and den
+		h.computeTotalPatchTimes();
+		// Compute amount of food gathered by every kid at every patch 
+		h.computeHarvest(gameBeginTime, gameEndTime);
 	}
 	
 	
 	public void printResults() {
-		System.out.println("Total game run time: "+(gameEndTime-gameBeginTime)+"s");
+		System.out.println("Total game run time: "+(gameEndTime-gameBeginTime)+"s\n");
 		h.printResults();
 	}
 
@@ -108,18 +123,6 @@ public class DataAnalysis {
 
 	private int getTs(JsonObject o) {
 		return Integer.parseInt(o.getString("_id", "$oid").substring(0, 8), 16);
-	}
-
-
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		DataAnalysis da = new DataAnalysis();
-		da.importData();
-		da.doAnalysis();
-		da.printResults();
 	}
 
 }
