@@ -8,6 +8,7 @@ public class Histories {
 	private List<PersonalHistory> th = new ArrayList<PersonalHistory>();
 	private int[] perPatchTotalTimes = {0,0,0,0,0,0,0};
 	private int[][] patchKidsDist = null;
+	private int[][] timeWithKidsAtPatch = null;
 
 
 	public void addAction(String id, int ts, int action, String patch) {
@@ -62,6 +63,18 @@ public class Histories {
 		for (PersonalHistory ph: th) 
 			ph.computeHarvest(gameBeginTime, gameEndTime, patchKidsDist);
 	}
+	
+	
+
+	public void computeKidsAtPatch() {
+		timeWithKidsAtPatch = new int[th.size()+1][patchKidsDist[0].length];
+		for (int ts=0; ts<patchKidsDist.length; ts++) {
+			for (int p=0; p<patchKidsDist[0].length; p++) {
+				timeWithKidsAtPatch[patchKidsDist[ts][p]][p]++;
+			}
+		}
+	}
+
 
 
 	private void computePatchDistribution(int gameBeginTime, int gameEndTime) {
@@ -154,6 +167,15 @@ public class Histories {
 		System.out.format("TOTAL   || %3d | %3d | %3d | %3d | %3d | %3d | %3d %n", 
 				perPatchTotalTimes[0], perPatchTotalTimes[1], perPatchTotalTimes[2], perPatchTotalTimes[3], 
 				perPatchTotalTimes[4], perPatchTotalTimes[5], perPatchTotalTimes[6]);
+		// Print how many times there are kids at patches
+		System.out.println();
+		System.out.format("#kids || -1- | -2- | -3- | -4- | -5- | -6- | den %n");
+		System.out.format("------------------------------------------------ %n");
+		for (int i=0; i<timeWithKidsAtPatch.length; i++) {
+			System.out.format("%3d   || %3d | %3d | %3d | %3d | %3d | %3d | %3d %n",
+					i, timeWithKidsAtPatch[i][0], timeWithKidsAtPatch[i][1], timeWithKidsAtPatch[i][2],
+					timeWithKidsAtPatch[i][3], timeWithKidsAtPatch[i][4], timeWithKidsAtPatch[i][5], timeWithKidsAtPatch[i][6]);
+		}
 	}
 	
 	
@@ -169,5 +191,4 @@ public class Histories {
 		}
 
 	}
-
 }

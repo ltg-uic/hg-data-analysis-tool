@@ -39,9 +39,9 @@ public class DataAnalysis {
 		// Read from file into jsonData list of json objects
 		FileInputStream fstream = null;
 		try {
-//			fstream = new FileInputStream("/Users/tebemis/Desktop/Dropbox/Foraging_Data_Analysis/foraging_pilot_oct12_log_1.json");
+			fstream = new FileInputStream("/Users/tebemis/Desktop/Dropbox/Foraging_Data_Analysis/foraging_pilot_oct12_log_1.json");
 //			fstream = new FileInputStream("/Users/tebemis/Desktop/Dropbox/Foraging_Data_Analysis/foraging_pilot_oct12_log_2.json");
-			fstream = new FileInputStream("/Users/tebemis/Desktop/Dropbox/Foraging_Data_Analysis/foraging_pilot_oct12_log_3.json");
+//			fstream = new FileInputStream("/Users/tebemis/Desktop/Dropbox/Foraging_Data_Analysis/foraging_pilot_oct12_log_3.json");
 			DataInputStream in = new DataInputStream(fstream);
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
 			String strLine = null;
@@ -111,6 +111,8 @@ public class DataAnalysis {
 		h.computeTotalPatchTimes();
 		// Compute amount of food gathered by every kid at every patch 
 		h.computeHarvest(gameBeginTime, gameEndTime);
+		// Total time there were 0, 1, 2,...n kids at the patch
+		h.computeKidsAtPatch();
 	}
 	
 	
