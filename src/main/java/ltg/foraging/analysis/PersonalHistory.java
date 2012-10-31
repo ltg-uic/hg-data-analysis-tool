@@ -7,8 +7,8 @@ public class PersonalHistory {
 	
 	private static final int patchRichness[] = {10, 10, 15, 15, 20, 20, 0};
 	
+	public List<Action> actions = new ArrayList<Action>();
 	public String id = null;
-	private List<Action> actions = new ArrayList<Action>();
 	public int[] patchTimes = {0,0,0,0,0,0,0};
 	public int[] patchHarvests = {0,0,0,0,0,0,0};
 	public int totalGameTime = -1;
@@ -89,6 +89,7 @@ public class PersonalHistory {
 			counter ++;
 		}
 		// Sequence length is EVEN and terminates with an arrival at a patch
+		// There is not return to den!
 		if (!(actions.size()%2==0)) {
 			System.err.println("Action sequence is corrupted: sequence length is odd");
 			return false; 

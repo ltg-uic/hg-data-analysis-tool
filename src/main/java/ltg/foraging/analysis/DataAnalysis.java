@@ -28,9 +28,9 @@ public class DataAnalysis {
 		// Read from file into jsonData
 		FileInputStream fstream = null;
 		try {
-			fstream = new FileInputStream("/Users/tebemis/Desktop/Dropbox/Foraging_Data_Analysis/foraging_pilot_oct12_log_1.json");
-			//fstream = new FileInputStream("/Users/tebemis/Desktop/Dropbox/Foraging_Data_Analysis/foraging_pilot_oct12_log_3.json");
-			//fstream = new FileInputStream("/Users/tebemis/Desktop/Dropbox/Foraging_Data_Analysis/foraging_pilot_oct12_log_3.json");
+//			fstream = new FileInputStream("/Users/tebemis/Desktop/Dropbox/Foraging_Data_Analysis/foraging_pilot_oct12_log_1.json");
+			fstream = new FileInputStream("/Users/tebemis/Desktop/Dropbox/Foraging_Data_Analysis/foraging_pilot_oct12_log_2.json");
+//			fstream = new FileInputStream("/Users/tebemis/Desktop/Dropbox/Foraging_Data_Analysis/foraging_pilot_oct12_log_3.json");
 			DataInputStream in = new DataInputStream(fstream);
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
 			String strLine = null;
@@ -57,6 +57,15 @@ public class DataAnalysis {
 			System.err.println("Impossible to open file");
 		} catch (IOException e) {
 			System.err.println("Impossible to close file");
+		}
+		// Check sequence is ordered
+		int lastTs = -1;
+		for (JsonObject o: jsonData) {
+			int currentTs = getTs(o);
+			if (lastTs <= currentTs)
+				lastTs = currentTs;
+			else
+				System.err.println("Sequence is not ordered properly... BAD!");
 		}
 		// Parse JSON objects into data structure
 		for (JsonObject o: jsonData) {
@@ -86,6 +95,7 @@ public class DataAnalysis {
 	
 	public void doAnalysis() {
 		h.computePatchTimes(gameEndTime);
+		h.computePatchDistribution(gameBeginTime, gameEndTime);
 	}
 	
 	
