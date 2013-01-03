@@ -44,8 +44,12 @@ public class PersonalHistory {
 		}
 		// Compute time at last patch
 		String p = actions.get(actions.size()-1).patch;
-		int pi = Integer.parseInt(p.substring(p.length()-1, p.length())) -1;
-		patchTimes[pi] += (gameEndTime-actions.get(actions.size()-1).ts);
+		if (p.equals("fg-den")) {
+			patchTimes[6] += (gameEndTime-actions.get(actions.size()-1).ts);
+		} else {
+			int pi = Integer.parseInt(p.substring(p.length()-1, p.length())) -1;
+			patchTimes[pi] += (gameEndTime-actions.get(actions.size()-1).ts);
+		}
 		// Compute total game time per kid
 		for (int i=0; i<patchTimes.length; i++) {
 			totalGameTime += patchTimes[i];
@@ -112,11 +116,14 @@ public class PersonalHistory {
 				System.err.println("Patch mismatch!");
 			}
 		}
-		// Compute time at last patch
+		// Compute harvest at last patch
 		String p = actions.get(actions.size()-1).patch;
-		int pi = Integer.parseInt(p.substring(p.length()-1, p.length())) - 1;
-		for (int ts=actions.get(actions.size()-1).ts; ts<gEt; ts++) {
-			patchHarvests[pi] += patchRichness[pi]/kidsAtPatch[ts-gBt][pi];
+		// Ignore den because it doesn't yield any harvest 
+		if (!p.equals("fg-den")) {
+			int pi = Integer.parseInt(p.substring(p.length()-1, p.length())) - 1;
+			for (int ts=actions.get(actions.size()-1).ts; ts<gEt; ts++) {
+				patchHarvests[pi] += patchRichness[pi]/kidsAtPatch[ts-gBt][pi];
+			}
 		}
 	}
 	
