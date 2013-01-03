@@ -158,7 +158,7 @@ public class Histories {
 
 
 	public void printResults() {
-		// Print time at patches, total game time, harvest at patches and number of patch entries
+		// Print time at patches, harvest at patches and number of patch entries
 		System.out.format("tagId   || -1- | -2- | -3- | -4- | -5- | -6- | den || hv-1 | hv-2 | hv-3 | hv-4 | hv-5 | hv-6 || TPE%n");
 		System.out.format("-----------------------------------------------------------------------------------------------------------%n");
 		for (PersonalHistory ph: th)
@@ -174,7 +174,7 @@ public class Histories {
 		System.out.format("TOTAL   || %3d | %3d | %3d | %3d | %3d | %3d | %3d %n", 
 				perPatchTotalTimes[0], perPatchTotalTimes[1], perPatchTotalTimes[2], perPatchTotalTimes[3], 
 				perPatchTotalTimes[4], perPatchTotalTimes[5], perPatchTotalTimes[6]);
-		// Print how many times there are kids at patches
+		// Print how many seconds there is a certain amount of kids at patches
 		System.out.println();
 		System.out.format("#kids || -1- | -2- | -3- | -4- | -5- | -6- | den %n");
 		System.out.format("------------------------------------------------ %n");
