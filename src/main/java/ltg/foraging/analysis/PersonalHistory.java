@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PersonalHistory {
-
-	private static final int patchRichness[] = {10, 10, 15, 15, 20, 20, 0};
+	
+	public  static final int patchRichness[] = {10, 10, 15, 15, 20, 20, 0};
 
 	public List<Action> actions = new ArrayList<Action>();
 	public String id = null;
@@ -26,9 +26,6 @@ public class PersonalHistory {
 
 
 	public void computePatchTimes(int gameEndTime) {
-		// Check sequence
-		if (!checkActionsSequence())
-			System.exit(-1);
 		// Compute pairs
 		for (int i=1; i<actions.size()-2; i+=2) {
 			if (actions.get(i).patch.equals(actions.get(i+1).patch)) {
@@ -62,7 +59,7 @@ public class PersonalHistory {
 	}
 
 
-	private boolean checkActionsSequence() {
+	public boolean checkActionsSequence() {
 		// First action is leaving the den
 		if (! (actions.get(0).patch.equals("fg-den") && actions.get(0).action==-1) ) {
 			System.err.println("First action is not leaving the den!");
@@ -87,15 +84,10 @@ public class PersonalHistory {
 			}
 			counter ++;
 		}
-		// Sequence length is EVEN and terminates with an arrival at a patch
-		// There is not return to den!
+		// Sequence length is EVEN
 		if (!(actions.size()%2==0)) {
 			System.err.println("Action sequence is corrupted: sequence length is odd");
 			return false; 
-		}
-		if (!(actions.get(actions.size()-1).action==1 && !actions.get(actions.size()-1).patch.equals("fg-den"))) {
-			System.err.println("Action sequence is corrupted: last action is not a patch arrival");
-			return false;
 		}
 		return true;
 	}
@@ -126,6 +118,29 @@ public class PersonalHistory {
 		for (int ts=actions.get(actions.size()-1).ts; ts<gEt; ts++) {
 			patchHarvests[pi] += patchRichness[pi]/kidsAtPatch[ts-gBt][pi];
 		}
+	}
+	
+	
+	public float getCurrentRate(int ts, int patch, int gBt, int[][] kidsAtPatch) {
+		return ((float) patchRichness[patch]) / ((float) kidsAtPatch[ts-gBt][patch]);
+	}
+	
+	
+	public float getJoinRate(int ts, int patch, int gBt, int[][] kidsAtPatch) {
+		return ((float) patchRichness[patch]) / ((float) kidsAtPatch[ts-gBt][patch]+1);
+	}
+	
+
+	public void computeQualityOfPatchSwitchedIndex(int gBt, int gEt, int[][] patchKidsDist) {
+		for (int i=0; i<actions.size(); i+=2) {
+			
+		}
+	}
+	
+	
+	@Override
+	public String toString() {
+		return id + " " + actions.toString();
 	}
 
 

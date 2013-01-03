@@ -32,6 +32,13 @@ public class Histories {
 				ph.addAction(ts, action, patch);
 		}
 	}
+	
+	
+	public void validateActionSequences() {
+		for (PersonalHistory ph: th)
+			if (!ph.checkActionsSequence())
+				System.exit(-1);
+	}
 
 
 	public boolean isThereHistory(String id) {
@@ -191,4 +198,13 @@ public class Histories {
 		}
 
 	}
+
+	public void computeQualityOfPatchSwitches(int gBt, int gEt) {
+		// For each kid
+		for (PersonalHistory ph: th) {
+			ph.computeQualityOfPatchSwitchedIndex(gBt, gEt, patchKidsDist);
+		}
+		
+	}
+	
 }
