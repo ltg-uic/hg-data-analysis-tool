@@ -1,0 +1,43 @@
+// Cluster A
+110", new RFIDTag("1623110", "a", "#7b2e1a")); //Brown
+624", new RFIDTag("1623624", "a", "#cb5012")); //Orange3
+305", new RFIDTag("1623305", "a", "#99896f")); //Gray-ish
+728", new RFIDTag("1623728", "a", "#ffd1a7")); //Cream-ish 
+
+// Cluster B
+302", new RFIDTag("1623302", "b", "#89369e")); //Purple
+386", new RFIDTag("1623386", "b", "#edac52")); //Orangy
+126", new RFIDTag("1623126", "b", "#c33d2f")); //Brown
+972", new RFIDTag("1623972", "b", "#f6e6d9")); //Cream
+
+// Cluster C
+683", new RFIDTag("1623683", "c", "#e38b31")); //Orange
+663", new RFIDTag("1623663", "c", "#ffbeb4")); //Pink
+641", new RFIDTag("1623641", "c", "#146d71")); //Blue
+454", new RFIDTag("1623454", "c", "#89369e")); //Purple
+
+// Cluster D
+257", new RFIDTag("1623257", "d", "#ffbeb4")); //Pink
+667", new RFIDTag("1623667", "d", "#146d71")); //Blue
+303", new RFIDTag("1623303", "d", "#db773c")); //Orange2
+115", new RFIDTag("1623115", "d", "#edac52")); //Orangy
+373", new RFIDTag("1623373", "d", "#99896f")); //Gray-ish
+
+
+728	A 
+972	B
+454	C
+115	D
+110	A
+126	B
+641	C
+303	D
+624	A
+302	B
+663	C
+257	D
+305	A
+624
+257	
+305	
+386	
