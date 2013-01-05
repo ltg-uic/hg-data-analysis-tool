@@ -39,12 +39,12 @@ public class DataAnalysis {
 		// Read from file into jsonData list of json objects
 		FileInputStream fstream = null;
 		try {
-//			fstream = new FileInputStream("/Users/tebemis/Desktop/Dropbox/Foraging_Data_Analysis/foraging_pilot_oct12_1_log_1.json");
-//			fstream = new FileInputStream("/Users/tebemis/Desktop/Dropbox/Foraging_Data_Analysis/foraging_pilot_oct12_1_log_2.json");
-//			fstream = new FileInputStream("/Users/tebemis/Desktop/Dropbox/Foraging_Data_Analysis/foraging_pilot_oct12_1_log_3.json");
-//			fstream = new FileInputStream("/Users/tebemis/Desktop/Dropbox/Foraging_Data_Analysis/foraging_pilot_oct12_2_log_1.json");
-//			fstream = new FileInputStream("/Users/tebemis/Desktop/Dropbox/Foraging_Data_Analysis/foraging_pilot_oct12_2_log_2.json");
-			fstream = new FileInputStream("/Users/tebemis/Desktop/Dropbox/Foraging_Data_Analysis/foraging_pilot_oct12_2_log_3.json");		
+//			fstream = new FileInputStream("data/pilot_1/foraging_pilot_oct12_1_log_1.json");
+//			fstream = new FileInputStream("data/pilot_1/foraging_pilot_oct12_1_log_2.json");
+//			fstream = new FileInputStream("data/pilot_1/foraging_pilot_oct12_1_log_3.json");
+//			fstream = new FileInputStream("data/pilot_1/foraging_pilot_oct12_2_log_1.json");
+//			fstream = new FileInputStream("data/pilot_1/foraging_pilot_oct12_2_log_2.json");
+			fstream = new FileInputStream("data/pilot_1/foraging_pilot_oct12_2_log_3.json");		
 			DataInputStream in = new DataInputStream(fstream);
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
 			String strLine = null;
@@ -99,6 +99,13 @@ public class DataAnalysis {
 					h.addAction(d.get(0).toString(), getTs(o), -1, dest);  	// It's a departure
 				else
 					h.addAction(a.get(0).toString(), getTs(o),  1, dest); 	// It's an arrival
+				continue;
+			}
+			// Parse kills events
+			if (o.getString("event").equals("kill_bunny")) {
+				String dest = o.getString("destination");
+				String id = o.getString("payload", "id");
+				h.addKill(id, dest);
 				continue;
 			}
 			//System.err.println("Unknown message type... what!");

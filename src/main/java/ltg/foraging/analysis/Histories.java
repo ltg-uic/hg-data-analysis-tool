@@ -1,7 +1,9 @@
 package ltg.foraging.analysis;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Histories {
 
@@ -9,6 +11,8 @@ public class Histories {
 	private int[] perPatchTotalTimes = {0,0,0,0,0,0,0};
 	private int[][] patchKidsDist = null;
 	private int[][] timeWithKidsAtPatch = null;
+	private Map<String, Integer> killsAtPatch = new HashMap<String, Integer>();
+	private Map<String, Integer> killsPerKid = new HashMap<String, Integer>();
 
 
 	public void addAction(String id, int ts, int action, String patch) {
@@ -16,7 +20,17 @@ public class Histories {
 			addActionTo(id, ts, action, patch);
 		else
 			addActionNew(id, ts, action, patch);
+	}
 
+
+	public void addKill(String id, String patch) {
+		System.out.println("Killed " + id + " at " + patch);
+		// Add to killings per id
+		int c1 = killsPerKid.containsKey(id) ? killsPerKid.get(id) : 0;
+		killsPerKid.put(id, c1 + 1);
+		// Add to killings per patch
+		int c2 = killsAtPatch.containsKey(patch) ? killsAtPatch.get(patch) : 0;
+		killsAtPatch.put(patch, c2 + 1);
 	}
 
 	private void addActionNew(String id, int ts, int action, String patch) {
@@ -32,8 +46,8 @@ public class Histories {
 				ph.addAction(ts, action, patch);
 		}
 	}
-	
-	
+
+
 	public void validateActionSequences() {
 		for (PersonalHistory ph: th)
 			if (!ph.checkActionsSequence())
@@ -70,8 +84,8 @@ public class Histories {
 		for (PersonalHistory ph: th) 
 			ph.computeHarvest(gameBeginTime, gameEndTime, patchKidsDist);
 	}
-	
-	
+
+
 
 	public void computeKidsAtPatch() {
 		timeWithKidsAtPatch = new int[th.size()+1][patchKidsDist[0].length];
@@ -183,9 +197,25 @@ public class Histories {
 					i, timeWithKidsAtPatch[i][0], timeWithKidsAtPatch[i][1], timeWithKidsAtPatch[i][2],
 					timeWithKidsAtPatch[i][3], timeWithKidsAtPatch[i][4], timeWithKidsAtPatch[i][5], timeWithKidsAtPatch[i][6]);
 		}
+		// Print attacks information
+		if (killsAtPatch.isEmpty() || killsPerKid.isEmpty())
+			return;
+		System.out.println();
+		System.out.format("TagId   | Attacks %n");
+		System.out.format("----------------- %n");
+		for (String id : killsPerKid.keySet()) {
+			System.out.format("%s | %3d %n", id, killsPerKid.get(id));
+		}
+		System.out.println();
+		System.out.format("PatchId    | Attacks %n");
+		System.out.format("-------------------- %n");
+		for (String id : killsAtPatch.keySet()) {
+			System.out.format("%s | %3d %n", id, killsAtPatch.get(id));
+		}
+
 	}
-	
-	
+
+
 	public void printKidsDistribution() {
 		// Print kids' distribution over patches
 		System.out.format("idx | 01 | 02 | 03 | 04 | 05 | 06 | dn%n");
@@ -204,7 +234,7 @@ public class Histories {
 		for (PersonalHistory ph: th) {
 			ph.computeQualityOfPatchSwitchedIndex(gBt, gEt, patchKidsDist);
 		}
-		
+
 	}
-	
+
 }
