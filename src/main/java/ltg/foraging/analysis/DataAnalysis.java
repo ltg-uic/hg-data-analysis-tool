@@ -63,7 +63,7 @@ public class DataAnalysis {
 	private String[] entryToArray(ObjectNode n) {
 		String[] entries = new String[6];	
 		Date d = new Date(1000*getTs(n));
-		SimpleDateFormat df = new SimpleDateFormat("mm/dd/yy HH:mm:ss");
+		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yy kk:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("America/Toronto"));
 		entries[0] = df.format(d);
 		Long.toString(getTs(n));
@@ -76,10 +76,10 @@ public class DataAnalysis {
 	}
 	
 	private String removeNull(JsonNode jsonNode) {
-		if (jsonNode!=null)
-			return jsonNode.asText();
-		else
+		if (jsonNode.asText().equals("null"))
 			return "";
+		else
+			return jsonNode.asText();
 	}
 
 
@@ -90,7 +90,7 @@ public class DataAnalysis {
 		FileInputStream fstream = null;
 		try {
 			fstream = new FileInputStream("data/helio_sp_13/ben_log.json");
-			//			fstream = new FileInputStream("data/helio_sp_13/julia_log.json");		
+			//fstream = new FileInputStream("data/helio_sp_13/julia_log.json");		
 			DataInputStream in = new DataInputStream(fstream);
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
 			String strLine = null;
