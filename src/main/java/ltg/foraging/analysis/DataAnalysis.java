@@ -44,7 +44,7 @@ public class DataAnalysis {
 		DataAnalysis da = new DataAnalysis();
 		da.importData();
 		da.cleanData();
-		//da.doAnalysis();
+		da.doAnalysis();
 		da.dumpToXLSX();
 		//da.printResults();
 	}
@@ -112,7 +112,8 @@ public class DataAnalysis {
 
 
 	public void doAnalysis() {
-
+		for (Bout b: bouts)
+			b.analyzeData();
 	}
 
 

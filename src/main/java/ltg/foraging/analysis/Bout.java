@@ -36,4 +36,9 @@ public class Bout {
 		return "[" + run_id + " " + bout_id + " " + habitat_configuration + "] Duration (sec): " + bout_lenght_in_sec + " Events: " + rawLog.size();
 	}
 
+	public void analyzeData() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
