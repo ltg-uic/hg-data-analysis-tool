@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import ltg.foraging.analysis.Action.ActionTypes;
+import ltg.foraging.analysis.Event.ActionTypes;
 
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -68,47 +68,49 @@ public class DataAnalysis {
 		long bout_stop_ts = -1;
 		String bout_id = null;
 		String habitat_configuration = null;
-		List<Action> bout_log = null;
+		List<Event> bout_log = null;
 		for (ObjectNode item : jsonLogFiles.get(run_id)) {
 			switch (item.get("event").textValue()) {
 			case "start_bout":
 				bout_start_ts =  getTs(item);
 				bout_id = item.get("payload").get("bout_id").textValue();
-				bout_id = item.get("payload").get("bout_id").textValue();
+				habitat_configuration = item.get("payload").get("habitat_configuration_id").textValue();
 				bout_log = new ArrayList<>();
 				break;
 			case "stop_bout":
 				bout_stop_ts = getTs(item);
+				bouts.add(new Bout(run_id, habitat_configuration, bout_id, bout_start_ts, bout_stop_ts, bout_log));
+				break;
+			case "reset_bout":
 				break;
 			case "rfid_update":
-				bout_log.add(new Action(	getTs(item), 
-											item.get("payload").get("id").textValue(), 
-											item.get("payload").get("departure").textValue(), 
-											item.get("payload").get("arrival").textValue() 
-											));
+				bout_log.add(new Event(	getTs(item), 
+						item.get("payload").get("id").textValue(), 
+						item.get("payload").get("departure").textValue(), 
+						item.get("payload").get("arrival").textValue() 
+						));
 				break;
 			case "kill_tag":
-				bout_log.add(new Action(	getTs(item), 
-											item.get("payload").get("id").textValue(), 
-											ActionTypes.KILL
+				bout_log.add(new Event(	getTs(item), 
+						item.get("payload").get("id").textValue(), 
+						ActionTypes.KILL
 						));
 				break;
 			case "resurrect_tag":
-				bout_log.add(new Action(	getTs(item), 
-											item.get("payload").get("id").textValue(), 
-											ActionTypes.REVIVE
+				bout_log.add(new Event(	getTs(item), 
+						item.get("payload").get("id").textValue(), 
+						ActionTypes.REVIVE
 						));
 				break;
 			default:
-				System.err.println("Unknown message type... what! Terminating");
+				System.err.println("Unknown message type \"" + item.get("event").textValue() + "\"... what! Terminating");
 				System.exit(-1);
 				break;
 			}
-			new Bout(run_id, habitat_configuration, bout_id, bout_start_ts, bout_stop_ts, bout_log);
 		}
 	}
 
-	
+
 	public void doAnalysis() {
 
 	}

@@ -1,6 +1,6 @@
 package ltg.foraging.analysis;
 
-public class Action {
+public class Event {
 	
 	public enum ActionTypes {
 		MOVE, KILL, REVIVE
@@ -13,7 +13,7 @@ public class Action {
 	public String arrival = null;
 	
 	
-	public Action(long ts, String id, String depart, String arrive) {
+	public Event(long ts, String id, String depart, String arrive) {
 		this.ts = ts;
 		this.id = id;
 		this.action = ActionTypes.MOVE;
@@ -21,7 +21,7 @@ public class Action {
 		this.arrival = arrive;
 	}
 	
-	public Action(long ts, String id, ActionTypes action) {
+	public Event(long ts, String id, ActionTypes action) {
 		this.ts = ts;
 		this.id = id;
 		this.action = action;
