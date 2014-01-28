@@ -8,7 +8,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import ltg.foraging.analysis.Action.ActionTypes;
 
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -23,17 +27,23 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class DataAnalysis {
 
-	private List<List<ObjectNode>> jsonFiles = new ArrayList<>();
 	private static String DATA_FOLDER = "data/hg_fall_13/";
 	private static String OUTPUT_FOLDER = DATA_FOLDER + "out/";
 
+	// Dirty data
+	private Map<String, List<ObjectNode>> jsonLogFiles = new HashMap<String, List<ObjectNode>>();
+	private List<ObjectNode> aggregates;
+	// Clean data
+	private List<Bout> bouts = new ArrayList<>();
+
 	/**
-	 * Calls all the functions necessary to analyze data
+	 * Calls the various functions to analyze data
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		DataAnalysis da = new DataAnalysis();
 		da.importData();
+		da.cleanData();
 		//da.doAnalysis();
 		da.dumpToXLSX();
 		//da.printResults();
@@ -41,20 +51,71 @@ public class DataAnalysis {
 
 
 	public void importData() {
-		jsonFiles.add(parseFile(DATA_FOLDER+"5ag_log.json"));
-		jsonFiles.add(parseFile(DATA_FOLDER+"5at_log.json"));
-		jsonFiles.add(parseFile(DATA_FOLDER+"5bj_log.json"));
-		jsonFiles.add(parseFile(DATA_FOLDER+"stats.json"));
+		jsonLogFiles.put("5ag", parseFile(DATA_FOLDER+"5ag_log.json"));
+		jsonLogFiles.put("5at", parseFile(DATA_FOLDER+"5at_log.json"));
+		jsonLogFiles.put("5bj", parseFile(DATA_FOLDER+"5bj_log.json"));
+		aggregates = parseFile(DATA_FOLDER+"stats.json");
+	}
+
+	public void cleanData() {
+		for (String run_id: jsonLogFiles.keySet())
+			extractBouts(run_id);
 	}
 
 
+	private void extractBouts(String run_id) {
+		long bout_start_ts = -1;
+		long bout_stop_ts = -1;
+		String bout_id = null;
+		String habitat_configuration = null;
+		List<Action> bout_log = null;
+		for (ObjectNode item : jsonLogFiles.get(run_id)) {
+			switch (item.get("event").textValue()) {
+			case "start_bout":
+				bout_start_ts =  getTs(item);
+				bout_id = item.get("payload").get("bout_id").textValue();
+				bout_id = item.get("payload").get("bout_id").textValue();
+				bout_log = new ArrayList<>();
+				break;
+			case "stop_bout":
+				bout_stop_ts = getTs(item);
+				break;
+			case "rfid_update":
+				bout_log.add(new Action(	getTs(item), 
+											item.get("payload").get("id").textValue(), 
+											item.get("payload").get("departure").textValue(), 
+											item.get("payload").get("arrival").textValue() 
+											));
+				break;
+			case "kill_tag":
+				bout_log.add(new Action(	getTs(item), 
+											item.get("payload").get("id").textValue(), 
+											ActionTypes.KILL
+						));
+				break;
+			case "resurrect_tag":
+				bout_log.add(new Action(	getTs(item), 
+											item.get("payload").get("id").textValue(), 
+											ActionTypes.REVIVE
+						));
+				break;
+			default:
+				System.err.println("Unknown message type... what! Terminating");
+				System.exit(-1);
+				break;
+			}
+			new Bout(run_id, habitat_configuration, bout_id, bout_start_ts, bout_stop_ts, bout_log);
+		}
+	}
+
+	
 	public void doAnalysis() {
 
 	}
 
 
 	public void dumpToXLSX() {
-		dumpAggregateStatsToXLSX(jsonFiles.get(3));
+		dumpAggregateStatsToXLSX(aggregates);
 	}
 
 	private void dumpAggregateStatsToXLSX(List<ObjectNode> bouts) {
@@ -170,7 +231,7 @@ public class DataAnalysis {
 	//////////////////////////
 	// Legacy export to CSV //
 	//////////////////////////
-	
+
 	//public void dumpToCSV() {
 	//	dumpAggregateStatsToCSV(jsonFiles.get(3));
 	//}

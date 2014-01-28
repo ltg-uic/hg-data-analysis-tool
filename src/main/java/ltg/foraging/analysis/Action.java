@@ -2,21 +2,38 @@ package ltg.foraging.analysis;
 
 public class Action {
 	
-	public int ts = -1;
-	public int action = 0;   //-1 when leaves, +1 when comes
-	public String patch = null;
+	public enum ActionTypes {
+		MOVE, KILL, REVIVE
+	}
+	
+	public long ts = -1;
+	public String id;
+	public ActionTypes action;
+	public String departure = null;
+	public String arrival = null;
 	
 	
-	public Action(int ts, int action, String patch) {
+	public Action(long ts, String id, String depart, String arrive) {
 		this.ts = ts;
+		this.id = id;
+		this.action = ActionTypes.MOVE;
+		this.departure = depart;
+		this.arrival = arrive;
+	}
+	
+	public Action(long ts, String id, ActionTypes action) {
+		this.ts = ts;
+		this.id = id;
 		this.action = action;
-		this.patch = patch;
 	}
 	
 	
 	@Override
 	public String toString() {
-		return action + " " + patch;
+		if (action==ActionTypes.MOVE)
+			return ts + " : " + id + " " + departure + " => " + arrival;
+		else
+			return ts + " : " + action + " " +id;
 	}
 
 }
