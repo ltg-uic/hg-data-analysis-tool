@@ -1,4 +1,4 @@
-package ltg.foraging.analysis;
+package ltg.hg.analysis;
 
 public class Event {
 	

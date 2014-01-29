@@ -1,4 +1,4 @@
-package ltg.foraging.analysis;
+package ltg.hg.analysis;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.File;
@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import ltg.foraging.analysis.Event.ActionTypes;
+import ltg.hg.analysis.Event.ActionTypes;
 
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -31,10 +31,11 @@ public class DataAnalysis {
 	private static String OUTPUT_FOLDER = DATA_FOLDER + "out/";
 
 	// Dirty data
-	private Map<String, List<ObjectNode>> jsonLogFiles = new HashMap<String, List<ObjectNode>>();
-	private List<ObjectNode> aggregates;
+	private Map<String, List<ObjectNode>> jsonLogFiles = new HashMap<>();
 	// Clean data
 	private List<Bout> bouts = new ArrayList<>();
+	// Aggregates results
+	private List<ObjectNode> aggregates;
 
 	/**
 	 * Calls the various functions to analyze data
@@ -46,20 +47,23 @@ public class DataAnalysis {
 		da.cleanData();
 		da.doAnalysis();
 		da.dumpToXLSX();
-		//da.printResults();
 	}
 
 
 	public void importData() {
+		System.out.print("Importing data...");
 		jsonLogFiles.put("5ag", parseFile(DATA_FOLDER+"5ag_log.json"));
 		jsonLogFiles.put("5at", parseFile(DATA_FOLDER+"5at_log.json"));
 		jsonLogFiles.put("5bj", parseFile(DATA_FOLDER+"5bj_log.json"));
 		aggregates = parseFile(DATA_FOLDER+"stats.json");
+		System.out.print(" DONE!\n");
 	}
 
 	public void cleanData() {
+		System.out.print("Cleaning data...");
 		for (String run_id: jsonLogFiles.keySet())
 			extractBouts(run_id);
+		System.out.print(" DONE!\n");
 	}
 
 
@@ -112,29 +116,28 @@ public class DataAnalysis {
 
 
 	public void doAnalysis() {
+		System.out.print("Analyzing...");
 		for (Bout b: bouts)
 			b.analyzeData();
+		System.out.print(" DONE!\n");
 	}
 
 
 	public void dumpToXLSX() {
-		dumpAggregateStatsToXLSX(aggregates);
-	}
-
-	private void dumpAggregateStatsToXLSX(List<ObjectNode> bouts) {
+		System.out.print("Dumping results...");
 		// Create output folder and workbook
 		new File(OUTPUT_FOLDER).mkdir();
 		Workbook wb = new XSSFWorkbook();
 		FileOutputStream fileOut = null;
 		try {
-			fileOut = new FileOutputStream(OUTPUT_FOLDER + "aggregates.xlsx");
+			fileOut = new FileOutputStream(OUTPUT_FOLDER + "hg_fall_13_per_student_data.xlsx");
 		} catch (FileNotFoundException e) {
 			System.out.println("Can't create the XLSX file, terminating");
 			System.exit(-1);
 		}
 		// One Worksheet per bout
-		for (ObjectNode bout: bouts)
-			wb = dumpBoutAggregateStatsToXLSX(wb, bout);
+		for (Bout bout: bouts)
+			wb = dumpBoutStatsToXLSX(wb, bout);
 		// Write and close file
 		try {
 			wb.write(fileOut);
@@ -143,42 +146,93 @@ public class DataAnalysis {
 			System.out.println("Can't write/close the XLSX file, terminating");
 			System.exit(-1);
 		}
+		System.out.print(" DONE!\n");
 	}
 
-	private Workbook dumpBoutAggregateStatsToXLSX(Workbook wb, ObjectNode bout) {
-		String sheetName = bout.get("run_id").textValue() + "_bout" + bout.get("bout_id").textValue();
+	private Workbook dumpBoutStatsToXLSX(Workbook wb, Bout bout) {
+		String sheetName = bout.run_id + "_bout" + bout.bout_id;
 		Sheet sheet = wb.createSheet(sheetName);
-		int i = 0;
-		Row row = sheet.createRow(i);
-		row.createCell(0).setCellValue("name");
-		row.createCell(1).setCellValue("harvest");
-		row.createCell(2).setCellValue("avg_quality");
-		row.createCell(3).setCellValue("avg_competition");
-		row.createCell(4).setCellValue("total_moves");
-		row.createCell(5).setCellValue("arbitrage");
-		row.createCell(6).setCellValue("avg_risk");
-		for (JsonNode user: (ArrayNode) bout.get("user_stats")) {
-			Row r = sheet.createRow(++i);
-			r.createCell(0).setCellValue(user.get("name").textValue());
-			r.createCell(1).setCellValue(user.get("harvest").asDouble());
-			r.createCell(2).setCellValue(user.get("avg_quality").asDouble());
-			r.createCell(3).setCellValue(user.get("avg_competition").asDouble());
-			r.createCell(4).setCellValue(user.get("total_moves").asDouble());
-			r.createCell(5).setCellValue(user.get("arbitrage").asDouble());
-			r.createCell(6).setCellValue(user.get("avg_risk").asDouble());
+		sheet = addSheetHeader(sheet);
+		int i=0;
+		for (String tag_id : bout.results.cumulativeTimeAtPatchPerTag.keySet()) {
+			Row row = sheet.createRow(++i);
+			row.createCell(0).setCellValue(tag_id);
+			row = addTimesToSheet(row, bout.results.cumulativeTimeAtPatchPerTag.get(tag_id));
+			row = addHarvestsToSheet(row, bout.results.cumulativeHarvestAtPatchperTag.get(tag_id));
+			row = addAggregatesToSheet(row, bout.run_id, bout.bout_id, tag_id);
 		}
 		return wb;
 	}
 
-
-
-
-	public String removeNull(JsonNode jsonNode) {
-		if (jsonNode.asText().equals("null"))
-			return "";
-		else
-			return jsonNode.asText();
+	private Sheet addSheetHeader(Sheet sheet) {
+		Row row = sheet.createRow(0);
+		row.createCell(0).setCellValue("name");
+		row.createCell(1).setCellValue("time at A");
+		row.createCell(2).setCellValue("time at B");
+		row.createCell(3).setCellValue("time at C");
+		row.createCell(4).setCellValue("time at D");
+		row.createCell(5).setCellValue("time at E");
+		row.createCell(6).setCellValue("time at F");
+		row.createCell(7).setCellValue("time tot");
+		row.createCell(8).setCellValue("harv at A");
+		row.createCell(9).setCellValue("harv at B");
+		row.createCell(10).setCellValue("harv at C");
+		row.createCell(11).setCellValue("harv at D");
+		row.createCell(12).setCellValue("harv at E");
+		row.createCell(13).setCellValue("harv at F");
+		row.createCell(14).setCellValue("harv tot");
+		row.createCell(15).setCellValue("avg quality");
+		row.createCell(16).setCellValue("avg competition");
+		row.createCell(17).setCellValue("total moves");
+		row.createCell(18).setCellValue("arbitrage");
+		row.createCell(19).setCellValue("avg risk");
+		return sheet;
 	}
+
+	private Row addTimesToSheet(Row row, List<Integer> times) {
+		int i = 1;
+		int total = 0;
+		for (int t : times) {
+			row.createCell(i++).setCellValue(t);
+			total+=t;
+		}
+		row.createCell(i).setCellValue(total);
+		return row;
+	}
+
+	private Row addHarvestsToSheet(Row row, List<Double> harvests) {
+		int i = 8;
+		int total = 0;
+		for (double h : harvests) {
+			row.createCell(i++).setCellValue(h);
+			total+=h;
+		}
+		row.createCell(i).setCellValue(total);
+		return row;
+	}
+
+	private Row addAggregatesToSheet(Row row, String run_id, String bout_id, String tag_id) {
+		JsonNode user = null;
+		for (ObjectNode bout : aggregates)
+			if (bout.get("run_id").textValue().equals(run_id) && bout.get("bout_id").textValue().equals(bout_id))			
+				for (JsonNode u: (ArrayNode) bout.get("user_stats"))
+					if (u.get("name").textValue().equals(tag_id))
+						user = u;
+		row.createCell(15).setCellValue(user.get("avg_quality").asDouble());
+		row.createCell(16).setCellValue(user.get("avg_competition").asDouble());
+		row.createCell(17).setCellValue(user.get("total_moves").asDouble());
+		row.createCell(18).setCellValue(user.get("arbitrage").asDouble());
+		row.createCell(19).setCellValue(user.get("avg_risk").asDouble());
+		return row;
+	}
+
+
+	//	public String removeNull(JsonNode jsonNode) {
+	//		if (jsonNode.asText().equals("null"))
+	//			return "";
+	//		else
+	//			return jsonNode.asText();
+	//	}
 
 
 	// Path relative to project root (e.g. "data/helio_sp_13/ben_log.json")
