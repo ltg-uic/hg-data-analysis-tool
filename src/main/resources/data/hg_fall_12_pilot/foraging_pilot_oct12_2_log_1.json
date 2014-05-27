@@ -1,0 +1,352 @@
+{ "_id" : { "$oid" : "509e68d7e4b0b5e0aeac7913" }, "event" : "game_reset", "payload" : {} }
+{ "_id" : { "$oid" : "509e68d7e4b0b5e0aeac7914" }, "event" : "life_display_init", "payload" : {} }
+{ "_id" : { "$oid" : "509e68d7e4b0b5e0aeac7915" }, "event" : "life_display_init_data", "payload" : { "patches" : [ { "patch" : "fg-patch-1", "feed-ratio" : 10 }, { "patch" : "fg-patch-2", "feed-ratio" : 10 }, { "patch" : "fg-patch-3", "feed-ratio" : 15 }, { "patch" : "fg-patch-4", "feed-ratio" : 15 }, { "patch" : "fg-patch-5", "feed-ratio" : 20 }, { "patch" : "fg-patch-6", "feed-ratio" : 20 }, { "patch" : "fg-den", "feed-ratio" : 0 } ], "tags" : [ { "tag" : "1623373", "cluster" : "d", "color" : "#99896f" }, { "tag" : "1623305", "cluster" : "a", "color" : "#99896f" }, { "tag" : "1623454", "cluster" : "c", "color" : "#89369e" }, { "tag" : "1623303", "cluster" : "d", "color" : "#db773c" }, { "tag" : "1623624", "cluster" : "a", "color" : "#cb5012" }, { "tag" : "1623667", "cluster" : "d", "color" : "#146d71" }, { "tag" : "1623257", "cluster" : "d", "color" : "#ffbeb4" }, { "tag" : "1623386", "cluster" : "b", "color" : "#edac52" }, { "tag" : "1623663", "cluster" : "c", "color" : "#ffbeb4" }, { "tag" : "1623115", "cluster" : "d", "color" : "#edac52" }, { "tag" : "1623683", "cluster" : "c", "color" : "#e38b31" }, { "tag" : "1623972", "cluster" : "b", "color" : "#f6e6d9" }, { "tag" : "1623110", "cluster" : "a", "color" : "#7b2e1a" }, { "tag" : "1623126", "cluster" : "b", "color" : "#c33d2f" }, { "tag" : "1623728", "cluster" : "a", "color" : "#ffd1a7" }, { "tag" : "1623302", "cluster" : "b", "color" : "#89369e" }, { "tag" : "1623641", "cluster" : "c", "color" : "#146d71" } ] } }
+{ "_id" : { "$oid" : "509e68d7e4b0b5e0aeac7916" }, "event" : "patch_init", "origin" : "fg-patch-4", "payload" : {} }
+{ "_id" : { "$oid" : "509e68d7e4b0b5e0aeac7917" }, "event" : "patch_init", "origin" : "fg-patch-6", "payload" : {} }
+{ "_id" : { "$oid" : "509e68d7e4b0b5e0aeac7918" }, "event" : "patch_init", "origin" : "fg-patch-5", "payload" : {} }
+{ "_id" : { "$oid" : "509e68d7e4b0b5e0aeac7919" }, "event" : "patch_init", "origin" : "fg-patch-2", "payload" : {} }
+{ "_id" : { "$oid" : "509e68d7e4b0b5e0aeac791a" }, "event" : "patch_init_data", "destination" : "fg-patch-4", "payload" : { "feed-ratio" : 15, "tags" : [ { "tag" : "1623373", "cluster" : "d", "color" : "#99896f" }, { "tag" : "1623305", "cluster" : "a", "color" : "#99896f" }, { "tag" : "1623454", "cluster" : "c", "color" : "#89369e" }, { "tag" : "1623303", "cluster" : "d", "color" : "#db773c" }, { "tag" : "1623624", "cluster" : "a", "color" : "#cb5012" }, { "tag" : "1623667", "cluster" : "d", "color" : "#146d71" }, { "tag" : "1623257", "cluster" : "d", "color" : "#ffbeb4" }, { "tag" : "1623386", "cluster" : "b", "color" : "#edac52" }, { "tag" : "1623663", "cluster" : "c", "color" : "#ffbeb4" }, { "tag" : "1623115", "cluster" : "d", "color" : "#edac52" }, { "tag" : "1623683", "cluster" : "c", "color" : "#e38b31" }, { "tag" : "1623972", "cluster" : "b", "color" : "#f6e6d9" }, { "tag" : "1623110", "cluster" : "a", "color" : "#7b2e1a" }, { "tag" : "1623126", "cluster" : "b", "color" : "#c33d2f" }, { "tag" : "1623728", "cluster" : "a", "color" : "#ffd1a7" }, { "tag" : "1623302", "cluster" : "b", "color" : "#89369e" }, { "tag" : "1623641", "cluster" : "c", "color" : "#146d71" } ] } }
+{ "_id" : { "$oid" : "509e68d7e4b0b5e0aeac791b" }, "event" : "patch_init", "origin" : "fg-patch-3", "payload" : {} }
+{ "_id" : { "$oid" : "509e68d7e4b0b5e0aeac791c" }, "event" : "patch_init", "origin" : "fg-patch-1", "payload" : {} }
+{ "_id" : { "$oid" : "509e68d7e4b0b5e0aeac791d" }, "event" : "patch_init_data", "destination" : "fg-patch-6", "payload" : { "feed-ratio" : 20, "tags" : [ { "tag" : "1623373", "cluster" : "d", "color" : "#99896f" }, { "tag" : "1623305", "cluster" : "a", "color" : "#99896f" }, { "tag" : "1623454", "cluster" : "c", "color" : "#89369e" }, { "tag" : "1623303", "cluster" : "d", "color" : "#db773c" }, { "tag" : "1623624", "cluster" : "a", "color" : "#cb5012" }, { "tag" : "1623667", "cluster" : "d", "color" : "#146d71" }, { "tag" : "1623257", "cluster" : "d", "color" : "#ffbeb4" }, { "tag" : "1623386", "cluster" : "b", "color" : "#edac52" }, { "tag" : "1623663", "cluster" : "c", "color" : "#ffbeb4" }, { "tag" : "1623115", "cluster" : "d", "color" : "#edac52" }, { "tag" : "1623683", "cluster" : "c", "color" : "#e38b31" }, { "tag" : "1623972", "cluster" : "b", "color" : "#f6e6d9" }, { "tag" : "1623110", "cluster" : "a", "color" : "#7b2e1a" }, { "tag" : "1623126", "cluster" : "b", "color" : "#c33d2f" }, { "tag" : "1623728", "cluster" : "a", "color" : "#ffd1a7" }, { "tag" : "1623302", "cluster" : "b", "color" : "#89369e" }, { "tag" : "1623641", "cluster" : "c", "color" : "#146d71" } ] } }
+{ "_id" : { "$oid" : "509e68d7e4b0b5e0aeac791e" }, "event" : "patch_init_data", "destination" : "fg-patch-5", "payload" : { "feed-ratio" : 20, "tags" : [ { "tag" : "1623373", "cluster" : "d", "color" : "#99896f" }, { "tag" : "1623305", "cluster" : "a", "color" : "#99896f" }, { "tag" : "1623454", "cluster" : "c", "color" : "#89369e" }, { "tag" : "1623303", "cluster" : "d", "color" : "#db773c" }, { "tag" : "1623624", "cluster" : "a", "color" : "#cb5012" }, { "tag" : "1623667", "cluster" : "d", "color" : "#146d71" }, { "tag" : "1623257", "cluster" : "d", "color" : "#ffbeb4" }, { "tag" : "1623386", "cluster" : "b", "color" : "#edac52" }, { "tag" : "1623663", "cluster" : "c", "color" : "#ffbeb4" }, { "tag" : "1623115", "cluster" : "d", "color" : "#edac52" }, { "tag" : "1623683", "cluster" : "c", "color" : "#e38b31" }, { "tag" : "1623972", "cluster" : "b", "color" : "#f6e6d9" }, { "tag" : "1623110", "cluster" : "a", "color" : "#7b2e1a" }, { "tag" : "1623126", "cluster" : "b", "color" : "#c33d2f" }, { "tag" : "1623728", "cluster" : "a", "color" : "#ffd1a7" }, { "tag" : "1623302", "cluster" : "b", "color" : "#89369e" }, { "tag" : "1623641", "cluster" : "c", "color" : "#146d71" } ] } }
+{ "_id" : { "$oid" : "509e68d7e4b0b5e0aeac791f" }, "event" : "patch_init_data", "destination" : "fg-patch-2", "payload" : { "feed-ratio" : 10, "tags" : [ { "tag" : "1623373", "cluster" : "d", "color" : "#99896f" }, { "tag" : "1623305", "cluster" : "a", "color" : "#99896f" }, { "tag" : "1623454", "cluster" : "c", "color" : "#89369e" }, { "tag" : "1623303", "cluster" : "d", "color" : "#db773c" }, { "tag" : "1623624", "cluster" : "a", "color" : "#cb5012" }, { "tag" : "1623667", "cluster" : "d", "color" : "#146d71" }, { "tag" : "1623257", "cluster" : "d", "color" : "#ffbeb4" }, { "tag" : "1623386", "cluster" : "b", "color" : "#edac52" }, { "tag" : "1623663", "cluster" : "c", "color" : "#ffbeb4" }, { "tag" : "1623115", "cluster" : "d", "color" : "#edac52" }, { "tag" : "1623683", "cluster" : "c", "color" : "#e38b31" }, { "tag" : "1623972", "cluster" : "b", "color" : "#f6e6d9" }, { "tag" : "1623110", "cluster" : "a", "color" : "#7b2e1a" }, { "tag" : "1623126", "cluster" : "b", "color" : "#c33d2f" }, { "tag" : "1623728", "cluster" : "a", "color" : "#ffd1a7" }, { "tag" : "1623302", "cluster" : "b", "color" : "#89369e" }, { "tag" : "1623641", "cluster" : "c", "color" : "#146d71" } ] } }
+{ "_id" : { "$oid" : "509e68d7e4b0b5e0aeac7920" }, "event" : "patch_init_data", "destination" : "fg-patch-3", "payload" : { "feed-ratio" : 15, "tags" : [ { "tag" : "1623373", "cluster" : "d", "color" : "#99896f" }, { "tag" : "1623305", "cluster" : "a", "color" : "#99896f" }, { "tag" : "1623454", "cluster" : "c", "color" : "#89369e" }, { "tag" : "1623303", "cluster" : "d", "color" : "#db773c" }, { "tag" : "1623624", "cluster" : "a", "color" : "#cb5012" }, { "tag" : "1623667", "cluster" : "d", "color" : "#146d71" }, { "tag" : "1623257", "cluster" : "d", "color" : "#ffbeb4" }, { "tag" : "1623386", "cluster" : "b", "color" : "#edac52" }, { "tag" : "1623663", "cluster" : "c", "color" : "#ffbeb4" }, { "tag" : "1623115", "cluster" : "d", "color" : "#edac52" }, { "tag" : "1623683", "cluster" : "c", "color" : "#e38b31" }, { "tag" : "1623972", "cluster" : "b", "color" : "#f6e6d9" }, { "tag" : "1623110", "cluster" : "a", "color" : "#7b2e1a" }, { "tag" : "1623126", "cluster" : "b", "color" : "#c33d2f" }, { "tag" : "1623728", "cluster" : "a", "color" : "#ffd1a7" }, { "tag" : "1623302", "cluster" : "b", "color" : "#89369e" }, { "tag" : "1623641", "cluster" : "c", "color" : "#146d71" } ] } }
+{ "_id" : { "$oid" : "509e68d7e4b0b5e0aeac7921" }, "event" : "patch_init_data", "destination" : "fg-patch-1", "payload" : { "feed-ratio" : 10, "tags" : [ { "tag" : "1623373", "cluster" : "d", "color" : "#99896f" }, { "tag" : "1623305", "cluster" : "a", "color" : "#99896f" }, { "tag" : "1623454", "cluster" : "c", "color" : "#89369e" }, { "tag" : "1623303", "cluster" : "d", "color" : "#db773c" }, { "tag" : "1623624", "cluster" : "a", "color" : "#cb5012" }, { "tag" : "1623667", "cluster" : "d", "color" : "#146d71" }, { "tag" : "1623257", "cluster" : "d", "color" : "#ffbeb4" }, { "tag" : "1623386", "cluster" : "b", "color" : "#edac52" }, { "tag" : "1623663", "cluster" : "c", "color" : "#ffbeb4" }, { "tag" : "1623115", "cluster" : "d", "color" : "#edac52" }, { "tag" : "1623683", "cluster" : "c", "color" : "#e38b31" }, { "tag" : "1623972", "cluster" : "b", "color" : "#f6e6d9" }, { "tag" : "1623110", "cluster" : "a", "color" : "#7b2e1a" }, { "tag" : "1623126", "cluster" : "b", "color" : "#c33d2f" }, { "tag" : "1623728", "cluster" : "a", "color" : "#ffd1a7" }, { "tag" : "1623302", "cluster" : "b", "color" : "#89369e" }, { "tag" : "1623641", "cluster" : "c", "color" : "#146d71" } ] } }
+{ "_id" : { "$oid" : "509e68d7e4b0b5e0aeac7922" }, "event" : "penalty_box_init", "payload" : {} }
+{ "_id" : { "$oid" : "509e68d7e4b0b5e0aeac7923" }, "event" : "penalty_box_init_data", "payload" : { "penalty" : 30, "tags" : [ { "tag" : "1623373", "cluster" : "d", "color" : "#99896f" }, { "tag" : "1623305", "cluster" : "a", "color" : "#99896f" }, { "tag" : "1623454", "cluster" : "c", "color" : "#89369e" }, { "tag" : "1623303", "cluster" : "d", "color" : "#db773c" }, { "tag" : "1623624", "cluster" : "a", "color" : "#cb5012" }, { "tag" : "1623667", "cluster" : "d", "color" : "#146d71" }, { "tag" : "1623257", "cluster" : "d", "color" : "#ffbeb4" }, { "tag" : "1623386", "cluster" : "b", "color" : "#edac52" }, { "tag" : "1623663", "cluster" : "c", "color" : "#ffbeb4" }, { "tag" : "1623115", "cluster" : "d", "color" : "#edac52" }, { "tag" : "1623683", "cluster" : "c", "color" : "#e38b31" }, { "tag" : "1623972", "cluster" : "b", "color" : "#f6e6d9" }, { "tag" : "1623110", "cluster" : "a", "color" : "#7b2e1a" }, { "tag" : "1623126", "cluster" : "b", "color" : "#c33d2f" }, { "tag" : "1623728", "cluster" : "a", "color" : "#ffd1a7" }, { "tag" : "1623302", "cluster" : "b", "color" : "#89369e" }, { "tag" : "1623641", "cluster" : "c", "color" : "#146d71" } ] } }
+{ "_id" : { "$oid" : "509e68dae4b0b5e0aeac7924" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623303" ] } }
+{ "_id" : { "$oid" : "509e68dae4b0b5e0aeac7925" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623303" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e68dae4b0b5e0aeac7926" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e68dae4b0b5e0aeac7927" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e68dae4b0b5e0aeac7928" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623305" ] } }
+{ "_id" : { "$oid" : "509e68dae4b0b5e0aeac7929" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [ "1623305" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e68dae4b0b5e0aeac792a" }, "event" : "kill_bunny", "destination" : "fg-patch-6", "payload" : { "id" : "1623303" } }
+{ "_id" : { "$oid" : "509e68dbe4b0b5e0aeac792b" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623641" ] } }
+{ "_id" : { "$oid" : "509e68dbe4b0b5e0aeac792c" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623641" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e68dbe4b0b5e0aeac792d" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623303", "score" : "28" } }
+{ "_id" : { "$oid" : "509e68dbe4b0b5e0aeac792e" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e68dbe4b0b5e0aeac792f" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e68dde4b0b5e0aeac7930" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623728" ] } }
+{ "_id" : { "$oid" : "509e68dde4b0b5e0aeac7931" }, "event" : "rfid_update", "destination" : "fg-patch-2", "payload" : { "arrivals" : [ "1623728" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e68dee4b0b5e0aeac7932" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e68dee4b0b5e0aeac7933" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e68dee4b0b5e0aeac7934" }, "event" : "score_upate", "origin" : "fg-patch-5", "payload" : { "tag" : "1623624", "score" : "76" } }
+{ "_id" : { "$oid" : "509e68dee4b0b5e0aeac7935" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623257" ] } }
+{ "_id" : { "$oid" : "509e68dee4b0b5e0aeac7936" }, "event" : "rfid_update", "destination" : "fg-patch-1", "payload" : { "arrivals" : [ "1623257" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e68e0e4b0b5e0aeac7937" }, "event" : "kill_bunny", "destination" : "fg-patch-3", "payload" : { "id" : "1623126" } }
+{ "_id" : { "$oid" : "509e68e1e4b0b5e0aeac7938" }, "event" : "score_upate", "origin" : "fg-patch-3", "payload" : { "tag" : "1623126", "score" : "105" } }
+{ "_id" : { "$oid" : "509e68e1e4b0b5e0aeac7939" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e68e1e4b0b5e0aeac793a" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e68e1e4b0b5e0aeac793b" }, "event" : "score_upate", "origin" : "fg-patch-3", "payload" : { "tag" : "1623624", "score" : "48" } }
+{ "_id" : { "$oid" : "509e68e4e4b0b5e0aeac793c" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623303" ] } }
+{ "_id" : { "$oid" : "509e68e4e4b0b5e0aeac793d" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623303" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e68e6e4b0b5e0aeac793e" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e68e6e4b0b5e0aeac793f" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e68f2e4b0b5e0aeac7940" }, "event" : "kill_bunny", "destination" : "fg-patch-2", "payload" : { "id" : "1623728" } }
+{ "_id" : { "$oid" : "509e68f2e4b0b5e0aeac7941" }, "event" : "kill_bunny", "destination" : "fg-patch-5", "payload" : { "id" : "1623305" } }
+{ "_id" : { "$oid" : "509e68f3e4b0b5e0aeac7942" }, "event" : "score_upate", "origin" : "fg-patch-2", "payload" : { "tag" : "1623728", "score" : "418" } }
+{ "_id" : { "$oid" : "509e68f3e4b0b5e0aeac7943" }, "event" : "score_upate", "origin" : "fg-patch-5", "payload" : { "tag" : "1623305", "score" : "908" } }
+{ "_id" : { "$oid" : "509e68f7e4b0b5e0aeac7944" }, "event" : "bunny_alive", "payload" : { "id" : "1623303" } }
+{ "_id" : { "$oid" : "509e68fce4b0b5e0aeac7945" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [], "departures" : [ "1623305" ] } }
+{ "_id" : { "$oid" : "509e68fce4b0b5e0aeac7946" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623305" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e68fde4b0b5e0aeac7947" }, "event" : "bunny_alive", "payload" : { "id" : "1623126" } }
+{ "_id" : { "$oid" : "509e68fee4b0b5e0aeac7948" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e68fee4b0b5e0aeac7949" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e68fee4b0b5e0aeac794a" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623624", "score" : "584" } }
+{ "_id" : { "$oid" : "509e6900e4b0b5e0aeac794b" }, "event" : "rfid_update", "destination" : "fg-patch-2", "payload" : { "arrivals" : [], "departures" : [ "1623728" ] } }
+{ "_id" : { "$oid" : "509e6900e4b0b5e0aeac794c" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623728" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6900e4b0b5e0aeac794d" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623303" ] } }
+{ "_id" : { "$oid" : "509e6900e4b0b5e0aeac794e" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [ "1623303" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6903e4b0b5e0aeac794f" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e6903e4b0b5e0aeac7950" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6903e4b0b5e0aeac7951" }, "event" : "kill_bunny", "destination" : "fg-patch-6", "payload" : { "id" : "1623641" } }
+{ "_id" : { "$oid" : "509e6904e4b0b5e0aeac7952" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623641", "score" : "1056" } }
+{ "_id" : { "$oid" : "509e690ae4b0b5e0aeac7953" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e690ae4b0b5e0aeac7954" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e690ae4b0b5e0aeac7955" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623126", "score" : "272" } }
+{ "_id" : { "$oid" : "509e690de4b0b5e0aeac7956" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623641" ] } }
+{ "_id" : { "$oid" : "509e690de4b0b5e0aeac7957" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623641" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e690fe4b0b5e0aeac7958" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e690fe4b0b5e0aeac7959" }, "event" : "rfid_update", "destination" : "fg-patch-2", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e690fe4b0b5e0aeac795a" }, "event" : "score_upate", "origin" : "fg-patch-5", "payload" : { "tag" : "1623624", "score" : "680" } }
+{ "_id" : { "$oid" : "509e690fe4b0b5e0aeac795b" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [], "departures" : [ "1623303" ] } }
+{ "_id" : { "$oid" : "509e690fe4b0b5e0aeac795c" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623303" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e690fe4b0b5e0aeac795d" }, "event" : "score_upate", "origin" : "fg-patch-3", "payload" : { "tag" : "1623303", "score" : "450" } }
+{ "_id" : { "$oid" : "509e690fe4b0b5e0aeac795e" }, "event" : "bunny_alive", "payload" : { "id" : "1623305" } }
+{ "_id" : { "$oid" : "509e690fe4b0b5e0aeac795f" }, "event" : "bunny_alive", "payload" : { "id" : "1623728" } }
+{ "_id" : { "$oid" : "509e6912e4b0b5e0aeac7960" }, "event" : "rfid_update", "destination" : "fg-patch-2", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e6912e4b0b5e0aeac7961" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6912e4b0b5e0aeac7962" }, "event" : "score_upate", "origin" : "fg-patch-2", "payload" : { "tag" : "1623624", "score" : "60" } }
+{ "_id" : { "$oid" : "509e6918e4b0b5e0aeac7963" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623305" ] } }
+{ "_id" : { "$oid" : "509e6918e4b0b5e0aeac7964" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [ "1623305" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6918e4b0b5e0aeac7965" }, "event" : "kill_bunny", "destination" : "fg-patch-3", "payload" : { "id" : "1623624" } }
+{ "_id" : { "$oid" : "509e6918e4b0b5e0aeac7966" }, "event" : "score_upate", "origin" : "fg-patch-3", "payload" : { "tag" : "1623624", "score" : "198" } }
+{ "_id" : { "$oid" : "509e691ae4b0b5e0aeac7967" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e691ae4b0b5e0aeac7968" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e691ae4b0b5e0aeac7969" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e691ae4b0b5e0aeac796a" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e691ee4b0b5e0aeac796b" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e691ee4b0b5e0aeac796c" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6920e4b0b5e0aeac796d" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623728" ] } }
+{ "_id" : { "$oid" : "509e6920e4b0b5e0aeac796e" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [ "1623728" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6920e4b0b5e0aeac796f" }, "event" : "bunny_alive", "payload" : { "id" : "1623641" } }
+{ "_id" : { "$oid" : "509e6920e4b0b5e0aeac7970" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e6920e4b0b5e0aeac7971" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6920e4b0b5e0aeac7972" }, "event" : "score_upate", "origin" : "fg-patch-3", "payload" : { "tag" : "1623126", "score" : "193.5" } }
+{ "_id" : { "$oid" : "509e6929e4b0b5e0aeac7973" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623641" ] } }
+{ "_id" : { "$oid" : "509e6929e4b0b5e0aeac7974" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623641" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e692ce4b0b5e0aeac7975" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623303" ] } }
+{ "_id" : { "$oid" : "509e692ce4b0b5e0aeac7976" }, "event" : "rfid_update", "destination" : "fg-patch-1", "payload" : { "arrivals" : [ "1623303" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e692ce4b0b5e0aeac7977" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623303", "score" : "1092" } }
+{ "_id" : { "$oid" : "509e692fe4b0b5e0aeac7978" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e692fe4b0b5e0aeac7979" }, "event" : "rfid_update", "destination" : "fg-patch-2", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6932e4b0b5e0aeac797a" }, "event" : "rfid_update", "destination" : "fg-patch-1", "payload" : { "arrivals" : [], "departures" : [ "1623257" ] } }
+{ "_id" : { "$oid" : "509e6932e4b0b5e0aeac797b" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [ "1623257" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6932e4b0b5e0aeac797c" }, "event" : "score_upate", "origin" : "fg-patch-1", "payload" : { "tag" : "1623257", "score" : "1605" } }
+{ "_id" : { "$oid" : "509e6932e4b0b5e0aeac797d" }, "event" : "kill_bunny", "destination" : "fg-patch-3", "payload" : { "id" : "1623257" } }
+{ "_id" : { "$oid" : "509e6933e4b0b5e0aeac797e" }, "event" : "score_upate", "origin" : "fg-patch-3", "payload" : { "tag" : "1623257", "score" : "7.5" } }
+{ "_id" : { "$oid" : "509e6933e4b0b5e0aeac797f" }, "event" : "rfid_update", "destination" : "fg-patch-1", "payload" : { "arrivals" : [], "departures" : [ "1623303" ] } }
+{ "_id" : { "$oid" : "509e6933e4b0b5e0aeac7980" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623303" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6933e4b0b5e0aeac7981" }, "event" : "score_upate", "origin" : "fg-patch-1", "payload" : { "tag" : "1623303", "score" : "89" } }
+{ "_id" : { "$oid" : "509e6935e4b0b5e0aeac7982" }, "event" : "rfid_update", "destination" : "fg-patch-2", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e6935e4b0b5e0aeac7983" }, "event" : "rfid_update", "destination" : "fg-patch-4", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6935e4b0b5e0aeac7984" }, "event" : "score_upate", "origin" : "fg-patch-2", "payload" : { "tag" : "1623126", "score" : "120" } }
+{ "_id" : { "$oid" : "509e6935e4b0b5e0aeac7985" }, "event" : "bunny_alive", "payload" : { "id" : "1623624" } }
+{ "_id" : { "$oid" : "509e6937e4b0b5e0aeac7986" }, "event" : "kill_bunny", "destination" : "fg-patch-5", "payload" : { "id" : "1623305" } }
+{ "_id" : { "$oid" : "509e6938e4b0b5e0aeac7987" }, "event" : "score_upate", "origin" : "fg-patch-5", "payload" : { "tag" : "1623305", "score" : "1244" } }
+{ "_id" : { "$oid" : "509e693ce4b0b5e0aeac7988" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [], "departures" : [ "1623257" ] } }
+{ "_id" : { "$oid" : "509e693ce4b0b5e0aeac7989" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623257" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e693ee4b0b5e0aeac798a" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [], "departures" : [ "1623305" ] } }
+{ "_id" : { "$oid" : "509e693ee4b0b5e0aeac798b" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623305" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e693ee4b0b5e0aeac798c" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e693ee4b0b5e0aeac798d" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e693ee4b0b5e0aeac798e" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623303" ] } }
+{ "_id" : { "$oid" : "509e693ee4b0b5e0aeac798f" }, "event" : "rfid_update", "destination" : "fg-patch-2", "payload" : { "arrivals" : [ "1623303" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e693ee4b0b5e0aeac7990" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623303", "score" : "216" } }
+{ "_id" : { "$oid" : "509e6942e4b0b5e0aeac7991" }, "event" : "rfid_update", "destination" : "fg-patch-2", "payload" : { "arrivals" : [], "departures" : [ "1623303" ] } }
+{ "_id" : { "$oid" : "509e6942e4b0b5e0aeac7992" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623303" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6942e4b0b5e0aeac7993" }, "event" : "score_upate", "origin" : "fg-patch-2", "payload" : { "tag" : "1623303", "score" : "84" } }
+{ "_id" : { "$oid" : "509e694ce4b0b5e0aeac7994" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623641" ] } }
+{ "_id" : { "$oid" : "509e694ce4b0b5e0aeac7995" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [ "1623641" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e694ce4b0b5e0aeac7996" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623641", "score" : "932" } }
+{ "_id" : { "$oid" : "509e694fe4b0b5e0aeac7997" }, "event" : "bunny_alive", "payload" : { "id" : "1623257" } }
+{ "_id" : { "$oid" : "509e6951e4b0b5e0aeac7998" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e6951e4b0b5e0aeac7999" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6951e4b0b5e0aeac799a" }, "event" : "score_upate", "origin" : "fg-patch-5", "payload" : { "tag" : "1623624", "score" : "658" } }
+{ "_id" : { "$oid" : "509e6953e4b0b5e0aeac799b" }, "event" : "rfid_update", "destination" : "fg-patch-4", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e6953e4b0b5e0aeac799c" }, "event" : "rfid_update", "destination" : "fg-patch-1", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6954e4b0b5e0aeac799d" }, "event" : "score_upate", "origin" : "fg-patch-4", "payload" : { "tag" : "1623126", "score" : "915" } }
+{ "_id" : { "$oid" : "509e6954e4b0b5e0aeac799e" }, "event" : "bunny_alive", "payload" : { "id" : "1623305" } }
+{ "_id" : { "$oid" : "509e6958e4b0b5e0aeac799f" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623257" ] } }
+{ "_id" : { "$oid" : "509e6958e4b0b5e0aeac79a0" }, "event" : "rfid_update", "destination" : "fg-patch-2", "payload" : { "arrivals" : [ "1623257" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e695ce4b0b5e0aeac79a1" }, "event" : "rfid_update", "destination" : "fg-patch-1", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e695ce4b0b5e0aeac79a2" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e695ce4b0b5e0aeac79a3" }, "event" : "kill_bunny", "destination" : "fg-patch-5", "payload" : { "id" : "1623641" } }
+{ "_id" : { "$oid" : "509e695de4b0b5e0aeac79a4" }, "event" : "score_upate", "origin" : "fg-patch-5", "payload" : { "tag" : "1623641", "score" : "554" } }
+{ "_id" : { "$oid" : "509e695de4b0b5e0aeac79a5" }, "event" : "score_upate", "origin" : "fg-patch-1", "payload" : { "tag" : "1623126", "score" : "180" } }
+{ "_id" : { "$oid" : "509e695de4b0b5e0aeac79a6" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e695de4b0b5e0aeac79a7" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e695de4b0b5e0aeac79a8" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623624", "score" : "240.0000002384186" } }
+{ "_id" : { "$oid" : "509e695ee4b0b5e0aeac79a9" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623305" ] } }
+{ "_id" : { "$oid" : "509e695ee4b0b5e0aeac79aa" }, "event" : "rfid_update", "destination" : "fg-patch-4", "payload" : { "arrivals" : [ "1623305" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6963e4b0b5e0aeac79ab" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [], "departures" : [ "1623641" ] } }
+{ "_id" : { "$oid" : "509e6963e4b0b5e0aeac79ac" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623641" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6969e4b0b5e0aeac79ad" }, "event" : "rfid_update", "destination" : "fg-patch-2", "payload" : { "arrivals" : [], "departures" : [ "1623257" ] } }
+{ "_id" : { "$oid" : "509e6969e4b0b5e0aeac79ae" }, "event" : "rfid_update", "destination" : "fg-patch-1", "payload" : { "arrivals" : [ "1623257" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6969e4b0b5e0aeac79af" }, "event" : "score_upate", "origin" : "fg-patch-2", "payload" : { "tag" : "1623257", "score" : "324" } }
+{ "_id" : { "$oid" : "509e696be4b0b5e0aeac79b0" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e696be4b0b5e0aeac79b1" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e696be4b0b5e0aeac79b2" }, "event" : "score_upate", "origin" : "fg-patch-5", "payload" : { "tag" : "1623624", "score" : "540" } }
+{ "_id" : { "$oid" : "509e696be4b0b5e0aeac79b3" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e696be4b0b5e0aeac79b4" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623126", "score" : "282.6666669845581" } }
+{ "_id" : { "$oid" : "509e696be4b0b5e0aeac79b5" }, "event" : "rfid_update", "destination" : "fg-patch-2", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e696ee4b0b5e0aeac79b6" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623303" ] } }
+{ "_id" : { "$oid" : "509e696ee4b0b5e0aeac79b7" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [ "1623303" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e696ee4b0b5e0aeac79b8" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623303", "score" : "958.6666669845581" } }
+{ "_id" : { "$oid" : "509e6970e4b0b5e0aeac79b9" }, "event" : "kill_bunny", "destination" : "fg-patch-6", "payload" : { "id" : "1623624" } }
+{ "_id" : { "$oid" : "509e6971e4b0b5e0aeac79ba" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623624", "score" : "166.6666667461395" } }
+{ "_id" : { "$oid" : "509e6975e4b0b5e0aeac79bb" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e6975e4b0b5e0aeac79bc" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6976e4b0b5e0aeac79bd" }, "event" : "rfid_update", "destination" : "fg-patch-2", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e6976e4b0b5e0aeac79be" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6976e4b0b5e0aeac79bf" }, "event" : "score_upate", "origin" : "fg-patch-2", "payload" : { "tag" : "1623126", "score" : "214" } }
+{ "_id" : { "$oid" : "509e6979e4b0b5e0aeac79c0" }, "event" : "bunny_alive", "payload" : { "id" : "1623641" } }
+{ "_id" : { "$oid" : "509e697be4b0b5e0aeac79c1" }, "event" : "kill_bunny", "destination" : "fg-patch-5", "payload" : { "id" : "1623303" } }
+{ "_id" : { "$oid" : "509e697ce4b0b5e0aeac79c2" }, "event" : "score_upate", "origin" : "fg-patch-5", "payload" : { "tag" : "1623303", "score" : "540" } }
+{ "_id" : { "$oid" : "509e697ee4b0b5e0aeac79c3" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623641" ] } }
+{ "_id" : { "$oid" : "509e697ee4b0b5e0aeac79c4" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [ "1623641" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6981e4b0b5e0aeac79c5" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [], "departures" : [ "1623303" ] } }
+{ "_id" : { "$oid" : "509e6981e4b0b5e0aeac79c6" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623303" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6987e4b0b5e0aeac79c7" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e6987e4b0b5e0aeac79c8" }, "event" : "rfid_update", "destination" : "fg-patch-4", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6987e4b0b5e0aeac79c9" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623126", "score" : "696" } }
+{ "_id" : { "$oid" : "509e698de4b0b5e0aeac79ca" }, "event" : "rfid_update", "destination" : "fg-patch-4", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e698de4b0b5e0aeac79cb" }, "event" : "rfid_update", "destination" : "fg-patch-2", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e698de4b0b5e0aeac79cc" }, "event" : "bunny_alive", "payload" : { "id" : "1623624" } }
+{ "_id" : { "$oid" : "509e698ee4b0b5e0aeac79cd" }, "event" : "score_upate", "origin" : "fg-patch-4", "payload" : { "tag" : "1623126", "score" : "94.5" } }
+{ "_id" : { "$oid" : "509e698ee4b0b5e0aeac79ce" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623303" ] } }
+{ "_id" : { "$oid" : "509e698ee4b0b5e0aeac79cf" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623303" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6992e4b0b5e0aeac79d0" }, "event" : "rfid_update", "destination" : "fg-patch-1", "payload" : { "arrivals" : [], "departures" : [ "1623257" ] } }
+{ "_id" : { "$oid" : "509e6992e4b0b5e0aeac79d1" }, "event" : "rfid_update", "destination" : "fg-patch-4", "payload" : { "arrivals" : [ "1623257" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6992e4b0b5e0aeac79d2" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e6992e4b0b5e0aeac79d3" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6992e4b0b5e0aeac79d4" }, "event" : "score_upate", "origin" : "fg-patch-1", "payload" : { "tag" : "1623257", "score" : "830" } }
+{ "_id" : { "$oid" : "509e6993e4b0b5e0aeac79d5" }, "event" : "kill_bunny", "destination" : "fg-patch-4", "payload" : { "id" : "1623257" } }
+{ "_id" : { "$oid" : "509e6994e4b0b5e0aeac79d6" }, "event" : "score_upate", "origin" : "fg-patch-4", "payload" : { "tag" : "1623257", "score" : "21" } }
+{ "_id" : { "$oid" : "509e6997e4b0b5e0aeac79d7" }, "event" : "rfid_update", "destination" : "fg-patch-2", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e6997e4b0b5e0aeac79d8" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6997e4b0b5e0aeac79d9" }, "event" : "score_upate", "origin" : "fg-patch-2", "payload" : { "tag" : "1623126", "score" : "196" } }
+{ "_id" : { "$oid" : "509e6998e4b0b5e0aeac79da" }, "event" : "bunny_alive", "payload" : { "id" : "1623303" } }
+{ "_id" : { "$oid" : "509e699ee4b0b5e0aeac79db" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623303" ] } }
+{ "_id" : { "$oid" : "509e699ee4b0b5e0aeac79dc" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [ "1623303" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e699fe4b0b5e0aeac79dd" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e699fe4b0b5e0aeac79de" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e699fe4b0b5e0aeac79df" }, "event" : "score_upate", "origin" : "fg-patch-3", "payload" : { "tag" : "1623126", "score" : "118.5" } }
+{ "_id" : { "$oid" : "509e69a0e4b0b5e0aeac79e0" }, "event" : "rfid_update", "destination" : "fg-patch-4", "payload" : { "arrivals" : [], "departures" : [ "1623257" ] } }
+{ "_id" : { "$oid" : "509e69a0e4b0b5e0aeac79e1" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623257" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69a1e4b0b5e0aeac79e2" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e69a1e4b0b5e0aeac79e3" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69a1e4b0b5e0aeac79e4" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623624", "score" : "556" } }
+{ "_id" : { "$oid" : "509e69a3e4b0b5e0aeac79e5" }, "event" : "kill_bunny", "destination" : "fg-patch-3", "payload" : { "id" : "1623624" } }
+{ "_id" : { "$oid" : "509e69a4e4b0b5e0aeac79e6" }, "event" : "score_upate", "origin" : "fg-patch-3", "payload" : { "tag" : "1623624", "score" : "36" } }
+{ "_id" : { "$oid" : "509e69a9e4b0b5e0aeac79e7" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [], "departures" : [ "1623303" ] } }
+{ "_id" : { "$oid" : "509e69a9e4b0b5e0aeac79e8" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623303" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69a9e4b0b5e0aeac79e9" }, "event" : "score_upate", "origin" : "fg-patch-5", "payload" : { "tag" : "1623303", "score" : "220" } }
+{ "_id" : { "$oid" : "509e69aae4b0b5e0aeac79ea" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e69aae4b0b5e0aeac79eb" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69b0e4b0b5e0aeac79ec" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e69b0e4b0b5e0aeac79ed" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69b0e4b0b5e0aeac79ee" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623126", "score" : "484" } }
+{ "_id" : { "$oid" : "509e69b0e4b0b5e0aeac79ef" }, "event" : "bunny_alive", "payload" : { "id" : "1623257" } }
+{ "_id" : { "$oid" : "509e69b4e4b0b5e0aeac79f0" }, "event" : "kill_bunny", "destination" : "fg-patch-5", "payload" : { "id" : "1623641" } }
+{ "_id" : { "$oid" : "509e69b5e4b0b5e0aeac79f1" }, "event" : "score_upate", "origin" : "fg-patch-5", "payload" : { "tag" : "1623641", "score" : "1972" } }
+{ "_id" : { "$oid" : "509e69b5e4b0b5e0aeac79f2" }, "event" : "kill_bunny", "destination" : "fg-patch-3", "payload" : { "id" : "1623728" } }
+{ "_id" : { "$oid" : "509e69b6e4b0b5e0aeac79f3" }, "event" : "score_upate", "origin" : "fg-patch-3", "payload" : { "tag" : "1623728", "score" : "4231.5" } }
+{ "_id" : { "$oid" : "509e69b7e4b0b5e0aeac79f4" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e69b7e4b0b5e0aeac79f5" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69b7e4b0b5e0aeac79f6" }, "event" : "score_upate", "origin" : "fg-patch-3", "payload" : { "tag" : "1623126", "score" : "120" } }
+{ "_id" : { "$oid" : "509e69bce4b0b5e0aeac79f7" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [], "departures" : [ "1623641" ] } }
+{ "_id" : { "$oid" : "509e69bce4b0b5e0aeac79f8" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623641" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69bde4b0b5e0aeac79f9" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [], "departures" : [ "1623728" ] } }
+{ "_id" : { "$oid" : "509e69bde4b0b5e0aeac79fa" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623728" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69bee4b0b5e0aeac79fb" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623257" ] } }
+{ "_id" : { "$oid" : "509e69bee4b0b5e0aeac79fc" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623257" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69c0e4b0b5e0aeac79fd" }, "event" : "bunny_alive", "payload" : { "id" : "1623624" } }
+{ "_id" : { "$oid" : "509e69c3e4b0b5e0aeac79fe" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623303" ] } }
+{ "_id" : { "$oid" : "509e69c3e4b0b5e0aeac79ff" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [ "1623303" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69c3e4b0b5e0aeac7a00" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623303", "score" : "796" } }
+{ "_id" : { "$oid" : "509e69c6e4b0b5e0aeac7a01" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e69c6e4b0b5e0aeac7a02" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69c6e4b0b5e0aeac7a03" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e69c6e4b0b5e0aeac7a04" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69c6e4b0b5e0aeac7a05" }, "event" : "score_upate", "origin" : "fg-patch-5", "payload" : { "tag" : "1623126", "score" : "608" } }
+{ "_id" : { "$oid" : "509e69cee4b0b5e0aeac7a06" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [], "departures" : [ "1623303" ] } }
+{ "_id" : { "$oid" : "509e69cee4b0b5e0aeac7a07" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [ "1623303" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69cee4b0b5e0aeac7a08" }, "event" : "score_upate", "origin" : "fg-patch-3", "payload" : { "tag" : "1623303", "score" : "345" } }
+{ "_id" : { "$oid" : "509e69d1e4b0b5e0aeac7a09" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e69d1e4b0b5e0aeac7a0a" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69d1e4b0b5e0aeac7a0b" }, "event" : "bunny_alive", "payload" : { "id" : "1623641" } }
+{ "_id" : { "$oid" : "509e69d1e4b0b5e0aeac7a0c" }, "event" : "score_upate", "origin" : "fg-patch-5", "payload" : { "tag" : "1623624", "score" : "398" } }
+{ "_id" : { "$oid" : "509e69d2e4b0b5e0aeac7a0d" }, "event" : "bunny_alive", "payload" : { "id" : "1623728" } }
+{ "_id" : { "$oid" : "509e69d5e4b0b5e0aeac7a0e" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623641" ] } }
+{ "_id" : { "$oid" : "509e69d5e4b0b5e0aeac7a0f" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [ "1623641" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69d6e4b0b5e0aeac7a10" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e69d6e4b0b5e0aeac7a11" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69d6e4b0b5e0aeac7a12" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623126", "score" : "289.3333351612091" } }
+{ "_id" : { "$oid" : "509e69dae4b0b5e0aeac7a13" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e69dae4b0b5e0aeac7a14" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69dae4b0b5e0aeac7a15" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623624", "score" : "137.3333351612091" } }
+{ "_id" : { "$oid" : "509e69dbe4b0b5e0aeac7a16" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [], "departures" : [ "1623303" ] } }
+{ "_id" : { "$oid" : "509e69dbe4b0b5e0aeac7a17" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623303" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69dce4b0b5e0aeac7a18" }, "event" : "score_upate", "origin" : "fg-patch-5", "payload" : { "tag" : "1623303", "score" : "328.0000007152557" } }
+{ "_id" : { "$oid" : "509e69dce4b0b5e0aeac7a19" }, "event" : "kill_bunny", "destination" : "fg-patch-6", "payload" : { "id" : "1623303" } }
+{ "_id" : { "$oid" : "509e69dde4b0b5e0aeac7a1a" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623303", "score" : "20" } }
+{ "_id" : { "$oid" : "509e69dfe4b0b5e0aeac7a1b" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623728" ] } }
+{ "_id" : { "$oid" : "509e69dfe4b0b5e0aeac7a1c" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [ "1623728" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69e4e4b0b5e0aeac7a1d" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623303" ] } }
+{ "_id" : { "$oid" : "509e69e4e4b0b5e0aeac7a1e" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623303" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69ece4b0b5e0aeac7a1f" }, "event" : "kill_bunny", "destination" : "fg-patch-4", "payload" : { "id" : "1623305" } }
+{ "_id" : { "$oid" : "509e69ede4b0b5e0aeac7a20" }, "event" : "score_upate", "origin" : "fg-patch-4", "payload" : { "tag" : "1623305", "score" : "4159.5" } }
+{ "_id" : { "$oid" : "509e69ede4b0b5e0aeac7a21" }, "event" : "rfid_update", "destination" : "fg-patch-3", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e69eee4b0b5e0aeac7a22" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69eee4b0b5e0aeac7a23" }, "event" : "score_upate", "origin" : "fg-patch-3", "payload" : { "tag" : "1623126", "score" : "493.5" } }
+{ "_id" : { "$oid" : "509e69f3e4b0b5e0aeac7a24" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e69f3e4b0b5e0aeac7a25" }, "event" : "rfid_update", "destination" : "fg-patch-2", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69f3e4b0b5e0aeac7a26" }, "event" : "score_upate", "origin" : "fg-patch-5", "payload" : { "tag" : "1623624", "score" : "496.0000007152557" } }
+{ "_id" : { "$oid" : "509e69f6e4b0b5e0aeac7a27" }, "event" : "rfid_update", "destination" : "fg-patch-4", "payload" : { "arrivals" : [], "departures" : [ "1623305" ] } }
+{ "_id" : { "$oid" : "509e69f6e4b0b5e0aeac7a28" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623305" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69f9e4b0b5e0aeac7a29" }, "event" : "bunny_alive", "payload" : { "id" : "1623303" } }
+{ "_id" : { "$oid" : "509e69fbe4b0b5e0aeac7a2a" }, "event" : "rfid_update", "destination" : "fg-patch-2", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e69fbe4b0b5e0aeac7a2b" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e69fbe4b0b5e0aeac7a2c" }, "event" : "score_upate", "origin" : "fg-patch-2", "payload" : { "tag" : "1623624", "score" : "164" } }
+{ "_id" : { "$oid" : "509e69fce4b0b5e0aeac7a2d" }, "event" : "kill_bunny", "destination" : "fg-patch-5", "payload" : { "id" : "1623641" } }
+{ "_id" : { "$oid" : "509e69fde4b0b5e0aeac7a2e" }, "event" : "score_upate", "origin" : "fg-patch-5", "payload" : { "tag" : "1623641", "score" : "966.0000007152557" } }
+{ "_id" : { "$oid" : "509e69ffe4b0b5e0aeac7a2f" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e69ffe4b0b5e0aeac7a30" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6a00e4b0b5e0aeac7a31" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623126", "score" : "330.6666684150696" } }
+{ "_id" : { "$oid" : "509e6a01e4b0b5e0aeac7a32" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623303" ] } }
+{ "_id" : { "$oid" : "509e6a01e4b0b5e0aeac7a33" }, "event" : "rfid_update", "destination" : "fg-patch-1", "payload" : { "arrivals" : [ "1623303" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6a02e4b0b5e0aeac7a34" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [], "departures" : [ "1623641" ] } }
+{ "_id" : { "$oid" : "509e6a02e4b0b5e0aeac7a35" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623641" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6a04e4b0b5e0aeac7a36" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e6a04e4b0b5e0aeac7a37" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6a04e4b0b5e0aeac7a38" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623624", "score" : "146.6666684150696" } }
+{ "_id" : { "$oid" : "509e6a06e4b0b5e0aeac7a39" }, "event" : "kill_bunny", "destination" : "fg-patch-5", "payload" : { "id" : "1623624" } }
+{ "_id" : { "$oid" : "509e6a07e4b0b5e0aeac7a3a" }, "event" : "score_upate", "origin" : "fg-patch-5", "payload" : { "tag" : "1623624", "score" : "52" } }
+{ "_id" : { "$oid" : "509e6a08e4b0b5e0aeac7a3b" }, "event" : "kill_bunny", "destination" : "fg-patch-5", "payload" : { "id" : "1623126" } }
+{ "_id" : { "$oid" : "509e6a09e4b0b5e0aeac7a3c" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e6a09e4b0b5e0aeac7a3d" }, "event" : "rfid_update", "destination" : "fg-patch-4", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6a09e4b0b5e0aeac7a3e" }, "event" : "score_upate", "origin" : "fg-patch-5", "payload" : { "tag" : "1623126", "score" : "304" } }
+{ "_id" : { "$oid" : "509e6a09e4b0b5e0aeac7a3f" }, "event" : "bunny_alive", "payload" : { "id" : "1623305" } }
+{ "_id" : { "$oid" : "509e6a0be4b0b5e0aeac7a40" }, "event" : "rfid_update", "destination" : "fg-patch-1", "payload" : { "arrivals" : [], "departures" : [ "1623303" ] } }
+{ "_id" : { "$oid" : "509e6a0be4b0b5e0aeac7a41" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623303" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6a0be4b0b5e0aeac7a42" }, "event" : "score_upate", "origin" : "fg-patch-1", "payload" : { "tag" : "1623303", "score" : "208" } }
+{ "_id" : { "$oid" : "509e6a0ce4b0b5e0aeac7a43" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e6a0ce4b0b5e0aeac7a44" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6a0de4b0b5e0aeac7a45" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623303" ] } }
+{ "_id" : { "$oid" : "509e6a0de4b0b5e0aeac7a46" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [ "1623303" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6a0ee4b0b5e0aeac7a47" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623303", "score" : "48" } }
+{ "_id" : { "$oid" : "509e6a10e4b0b5e0aeac7a48" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623305" ] } }
+{ "_id" : { "$oid" : "509e6a10e4b0b5e0aeac7a49" }, "event" : "rfid_update", "destination" : "fg-patch-2", "payload" : { "arrivals" : [ "1623305" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6a11e4b0b5e0aeac7a4a" }, "event" : "kill_bunny", "destination" : "fg-patch-6", "payload" : { "id" : "1623257" } }
+{ "_id" : { "$oid" : "509e6a12e4b0b5e0aeac7a4b" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623257", "score" : "2280.000003576279" } }
+{ "_id" : { "$oid" : "509e6a12e4b0b5e0aeac7a4c" }, "event" : "rfid_update", "destination" : "fg-patch-4", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e6a12e4b0b5e0aeac7a4d" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6a17e4b0b5e0aeac7a4e" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623257" ] } }
+{ "_id" : { "$oid" : "509e6a17e4b0b5e0aeac7a4f" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623257" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6a19e4b0b5e0aeac7a50" }, "event" : "bunny_alive", "payload" : { "id" : "1623641" } }
+{ "_id" : { "$oid" : "509e6a1ee4b0b5e0aeac7a51" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623641" ] } }
+{ "_id" : { "$oid" : "509e6a1ee4b0b5e0aeac7a52" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623641" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6a20e4b0b5e0aeac7a53" }, "event" : "kill_bunny", "destination" : "fg-patch-6", "payload" : { "id" : "1623641" } }
+{ "_id" : { "$oid" : "509e6a21e4b0b5e0aeac7a54" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623641", "score" : "96" } }
+{ "_id" : { "$oid" : "509e6a23e4b0b5e0aeac7a55" }, "event" : "bunny_alive", "payload" : { "id" : "1623624" } }
+{ "_id" : { "$oid" : "509e6a25e4b0b5e0aeac7a56" }, "event" : "bunny_alive", "payload" : { "id" : "1623126" } }
+{ "_id" : { "$oid" : "509e6a2be4b0b5e0aeac7a57" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [], "departures" : [ "1623303" ] } }
+{ "_id" : { "$oid" : "509e6a2be4b0b5e0aeac7a58" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623303" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6a2be4b0b5e0aeac7a59" }, "event" : "score_upate", "origin" : "fg-patch-5", "payload" : { "tag" : "1623303", "score" : "1176" } }
+{ "_id" : { "$oid" : "509e6a2be4b0b5e0aeac7a5a" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623624" ] } }
+{ "_id" : { "$oid" : "509e6a2be4b0b5e0aeac7a5b" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [ "1623624" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6a2be4b0b5e0aeac7a5c" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623641" ] } }
+{ "_id" : { "$oid" : "509e6a2be4b0b5e0aeac7a5d" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [ "1623641" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6a2de4b0b5e0aeac7a5e" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e6a2de4b0b5e0aeac7a5f" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6a2ee4b0b5e0aeac7a60" }, "event" : "bunny_alive", "payload" : { "id" : "1623257" } }
+{ "_id" : { "$oid" : "509e6a33e4b0b5e0aeac7a61" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e6a33e4b0b5e0aeac7a62" }, "event" : "rfid_update", "destination" : "fg-patch-1", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6a34e4b0b5e0aeac7a63" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623126", "score" : "136" } }
+{ "_id" : { "$oid" : "509e6a36e4b0b5e0aeac7a64" }, "event" : "rfid_update", "destination" : "fg-den", "payload" : { "arrivals" : [], "departures" : [ "1623257" ] } }
+{ "_id" : { "$oid" : "509e6a36e4b0b5e0aeac7a65" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623257" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6a3be4b0b5e0aeac7a66" }, "event" : "kill_bunny", "destination" : "fg-patch-2", "payload" : { "id" : "1623305" } }
+{ "_id" : { "$oid" : "509e6a3ce4b0b5e0aeac7a67" }, "event" : "rfid_update", "destination" : "fg-patch-1", "payload" : { "arrivals" : [], "departures" : [ "1623126" ] } }
+{ "_id" : { "$oid" : "509e6a3ce4b0b5e0aeac7a68" }, "event" : "rfid_update", "destination" : "fg-patch-4", "payload" : { "arrivals" : [ "1623126" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6a3ce4b0b5e0aeac7a69" }, "event" : "score_upate", "origin" : "fg-patch-2", "payload" : { "tag" : "1623305", "score" : "874" } }
+{ "_id" : { "$oid" : "509e6a3ce4b0b5e0aeac7a6a" }, "event" : "score_upate", "origin" : "fg-patch-1", "payload" : { "tag" : "1623126", "score" : "164" } }
+{ "_id" : { "$oid" : "509e6a3de4b0b5e0aeac7a6b" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [], "departures" : [ "1623303" ] } }
+{ "_id" : { "$oid" : "509e6a3de4b0b5e0aeac7a6c" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [ "1623303" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6a3de4b0b5e0aeac7a6d" }, "event" : "score_upate", "origin" : "fg-patch-6", "payload" : { "tag" : "1623303", "score" : "436" } }
+{ "_id" : { "$oid" : "509e6a3de4b0b5e0aeac7a6e" }, "event" : "bunny_alive", "payload" : { "id" : "1623641" } }
+{ "_id" : { "$oid" : "509e6a41e4b0b5e0aeac7a6f" }, "event" : "rfid_update", "destination" : "fg-patch-5", "payload" : { "arrivals" : [], "departures" : [ "1623303" ] } }
+{ "_id" : { "$oid" : "509e6a41e4b0b5e0aeac7a70" }, "event" : "rfid_update", "destination" : "fg-patch-6", "payload" : { "arrivals" : [ "1623303" ], "departures" : [] } }
+{ "_id" : { "$oid" : "509e6a41e4b0b5e0aeac7a71" }, "event" : "score_upate", "origin" : "fg-patch-5", "payload" : { "tag" : "1623303", "score" : "90" } }
+{ "_id" : { "$oid" : "509e6a42e4b0b5e0aeac7a72" }, "event" : "game_stop", "payload" : {} }
