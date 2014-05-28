@@ -47,7 +47,7 @@ object HGDataAnalysis extends App {
       }.toList
     }
 
-    new Data(
+    Data(
       importSectionData("5ag"),
       importSectionData("5at"),
       importSectionData("5bj"),
@@ -57,8 +57,7 @@ object HGDataAnalysis extends App {
 
 
   def analyzeData(data: Data): Results = {
-    // TODO
-    new Null
+    Results()
   }
 
 }
