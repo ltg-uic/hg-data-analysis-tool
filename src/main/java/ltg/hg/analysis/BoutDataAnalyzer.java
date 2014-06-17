@@ -68,6 +68,7 @@ public class BoutDataAnalyzer {
 				break;
 			case KILL:
 				tags.get(e.id).is_alive = false;
+                tags.get(e.id).updateKillings();
 				break;
 			case REVIVE:
 				tags.get(e.id).is_alive = true;
@@ -97,6 +98,7 @@ public class BoutDataAnalyzer {
 			results.cumulativeTimeAtPatchPerTag.put(t.id, patchTimes);
 			List<Double> patchHarvest = t.getPatchHarvests(patches.keySet());
 			results.cumulativeHarvestAtPatchperTag.put(t.id, patchHarvest);
+            results.totalDeathsPerTag.put(t.id, t.total_deaths);
 		}
 	}
 	

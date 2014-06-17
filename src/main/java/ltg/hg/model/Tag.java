@@ -20,10 +20,11 @@ public class Tag {
 	// Aggregates
 	public Map<String, Double> time_at_patch = new HashMap<>();
 	public Map<String, Double> harvest_at_patch = new HashMap<>();
+    public int total_deaths;
 	
 	
 	public Tag(String id) {
-		this.id = id;
+        this.id = id;
 	}
 	
 	
@@ -56,6 +57,10 @@ public class Tag {
 		}
 	}
 
+    public void updateKillings() {
+        total_deaths++;
+    }
+
 	public List<Integer> getPatchTimes(Set<String> patches) {
 		List<Integer> list = new ArrayList<>();
 		for (String s: patches) {
@@ -84,5 +89,4 @@ public class Tag {
 		return list;
 	}
 
-	
 }

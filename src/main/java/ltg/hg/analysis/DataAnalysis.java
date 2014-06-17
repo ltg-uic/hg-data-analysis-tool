@@ -160,11 +160,13 @@ public class DataAnalysis {
 			row = addTimesToSheet(row, bout.results.cumulativeTimeAtPatchPerTag.get(tag_id));
 			row = addHarvestsToSheet(row, bout.results.cumulativeHarvestAtPatchperTag.get(tag_id));
 			row = addAggregatesToSheet(row, bout.run_id, bout.bout_id, tag_id);
+            addTotalDeathsToSheet(row, bout.results.totalDeathsPerTag.get(tag_id));
 		}
 		return wb;
 	}
 
-	private Sheet addSheetHeader(Sheet sheet) {
+
+    private Sheet addSheetHeader(Sheet sheet) {
 		Row row = sheet.createRow(0);
 		row.createCell(0).setCellValue("name");
 		row.createCell(1).setCellValue("time at A");
@@ -186,6 +188,7 @@ public class DataAnalysis {
 		row.createCell(17).setCellValue("total moves");
 		row.createCell(18).setCellValue("arbitrage");
 		row.createCell(19).setCellValue("avg risk");
+        row.createCell(20).setCellValue("tot deaths");
 		return sheet;
 	}
 
@@ -225,6 +228,10 @@ public class DataAnalysis {
 		row.createCell(19).setCellValue(user.get("avg_risk").asDouble());
 		return row;
 	}
+
+    private void addTotalDeathsToSheet(Row row, Integer deaths) {
+        row.createCell(20).setCellValue(deaths);
+    }
 
 
 	//	public String removeNull(JsonNode jsonNode) {
