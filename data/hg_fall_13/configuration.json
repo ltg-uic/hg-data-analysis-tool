@@ -1,0 +1,334 @@
+[
+    {
+        "_id": {
+            "$oid": "523a155c02e02d561d2ac9c7"
+        },
+        "run_id": "5bj",
+        "harvest_calculator_bout_length_in_minutes": 5,
+        "predation_penalty_length_in_seconds": 20,
+        "maximum_harvest": 3000,
+        "starving_threshold": 240,
+        "prospering_threshold": 270,
+        "patches": [
+            {
+                "patch_id": "patch-a",
+                "patch_label": "A",
+                "reader_id": 1,
+                "quality": "poor",
+                "quality_per_second": 10,
+                "quality_per_minute": 600,
+                "risk_label": "safe",
+                "risk_percent_per_second": 0.01
+            },
+            {
+                "patch_id": "patch-b",
+                "patch_label": "B",
+                "reader_id": 2,
+                "quality": "poor",
+                "quality_per_second": 10,
+                "quality_per_minute": 600,
+                "risk_label": "risky",
+                "risk_percent_per_second": 0.025
+            },
+            {
+                "patch_id": "patch-c",
+                "patch_label": "C",
+                "reader_id": 3,
+                "quality": "medium",
+                "quality_per_second": 15,
+                "quality_per_minute": 900,
+                "risk_label": "safe",
+                "risk_percent_per_second": 0.01
+            },
+            {
+                "patch_id": "patch-d",
+                "patch_label": "D",
+                "reader_id": 4,
+                "quality": "medium",
+                "quality_per_second": 15,
+                "quality_per_minute": 900,
+                "risk_label": "risky",
+                "risk_percent_per_second": 0.025
+            },
+            {
+                "patch_id": "patch-e",
+                "patch_label": "E",
+                "reader_id": 5,
+                "quality": "rich",
+                "quality_per_second": 20,
+                "quality_per_minute": 1200,
+                "risk_label": "safe",
+                "risk_percent_per_second": 0.01
+            },
+            {
+                "patch_id": "patch-f",
+                "patch_label": "F",
+                "reader_id": 6,
+                "quality": "rich",
+                "quality_per_second": 20,
+                "quality_per_minute": 1200,
+                "risk_label": "risky",
+                "risk_percent_per_second": 0.025
+            }
+        ],
+        "bots": [
+            "hg-bots#master-5bj",
+            "hg-bots#archiver-5bj",
+            "hg-bots#patch-a",
+            "hg-bots#patch-b",
+            "hg-bots#patch-c",
+            "hg-bots#patch-d",
+            "hg-bots#patch-e",
+            "hg-bots#patch-f"
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "523a155c02e02d561d2ac9c8"
+        },
+        "run_id": "5at",
+        "harvest_calculator_bout_length_in_minutes": 5,
+        "predation_penalty_length_in_seconds": 20,
+        "maximum_harvest": 3000,
+        "starving_threshold": 240,
+        "prospering_threshold": 270,
+        "patches": [
+            {
+                "patch_id": "patch-a",
+                "patch_label": "A",
+                "reader_id": 1,
+                "quality": "poor",
+                "quality_per_second": 10,
+                "quality_per_minute": 600,
+                "risk_label": "safe",
+                "risk_percent_per_second": 0.01
+            },
+            {
+                "patch_id": "patch-b",
+                "patch_label": "B",
+                "reader_id": 2,
+                "quality": "poor",
+                "quality_per_second": 10,
+                "quality_per_minute": 600,
+                "risk_label": "risky",
+                "risk_percent_per_second": 0.025
+            },
+            {
+                "patch_id": "patch-c",
+                "patch_label": "C",
+                "reader_id": 3,
+                "quality": "medium",
+                "quality_per_second": 15,
+                "quality_per_minute": 900,
+                "risk_label": "safe",
+                "risk_percent_per_second": 0.01
+            },
+            {
+                "patch_id": "patch-d",
+                "patch_label": "D",
+                "reader_id": 4,
+                "quality": "medium",
+                "quality_per_second": 15,
+                "quality_per_minute": 900,
+                "risk_label": "risky",
+                "risk_percent_per_second": 0.025
+            },
+            {
+                "patch_id": "patch-e",
+                "patch_label": "E",
+                "reader_id": 5,
+                "quality": "rich",
+                "quality_per_second": 20,
+                "quality_per_minute": 1200,
+                "risk_label": "safe",
+                "risk_percent_per_second": 0.0133
+            },
+            {
+                "patch_id": "patch-f",
+                "patch_label": "F",
+                "reader_id": 6,
+                "quality": "rich",
+                "quality_per_second": 20,
+                "quality_per_minute": 1200,
+                "risk_label": "risky",
+                "risk_percent_per_second": 0.025
+            }
+        ],
+        "bots": [
+            "hg-bots#master-5at",
+            "hg-bots#archiver-5at",
+            "hg-bots#patch-a",
+            "hg-bots#patch-b",
+            "hg-bots#patch-c",
+            "hg-bots#patch-d",
+            "hg-bots#patch-e",
+            "hg-bots#patch-f"
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "523a155c02e02d561d2ac9c9"
+        },
+        "run_id": "5ag",
+        "harvest_calculator_bout_length_in_minutes": 5,
+        "predation_penalty_length_in_seconds": 20,
+        "maximum_harvest": 3000,
+        "starving_threshold": 240,
+        "prospering_threshold": 270,
+        "patches": [
+            {
+                "patch_id": "patch-a",
+                "patch_label": "A",
+                "reader_id": 1,
+                "quality": "poor",
+                "quality_per_second": 10,
+                "quality_per_minute": 600,
+                "risk_label": "safe",
+                "risk_percent_per_second": 0.01
+            },
+            {
+                "patch_id": "patch-b",
+                "patch_label": "B",
+                "reader_id": 2,
+                "quality": "poor",
+                "quality_per_second": 10,
+                "quality_per_minute": 600,
+                "risk_label": "risky",
+                "risk_percent_per_second": 0.025
+            },
+            {
+                "patch_id": "patch-c",
+                "patch_label": "C",
+                "reader_id": 3,
+                "quality": "medium",
+                "quality_per_second": 15,
+                "quality_per_minute": 900,
+                "risk_label": "safe",
+                "risk_percent_per_second": 0.01
+            },
+            {
+                "patch_id": "patch-d",
+                "patch_label": "D",
+                "reader_id": 4,
+                "quality": "medium",
+                "quality_per_second": 15,
+                "quality_per_minute": 900,
+                "risk_label": "risky",
+                "risk_percent_per_second": 0.025
+            },
+            {
+                "patch_id": "patch-e",
+                "patch_label": "E",
+                "reader_id": 5,
+                "quality": "rich",
+                "quality_per_second": 20,
+                "quality_per_minute": 1200,
+                "risk_label": "safe",
+                "risk_percent_per_second": 0.0133
+            },
+            {
+                "patch_id": "patch-f",
+                "patch_label": "F",
+                "reader_id": 6,
+                "quality": "rich",
+                "quality_per_second": 20,
+                "quality_per_minute": 1200,
+                "risk_label": "risky",
+                "risk_percent_per_second": 0.025
+            }
+        ],
+        "bots": [
+            "hg-bots#master-5ag",
+            "hg-bots#archiver-5ag",
+            "hg-bots#patch-a",
+            "hg-bots#patch-b",
+            "hg-bots#patch-c",
+            "hg-bots#patch-d",
+            "hg-bots#patch-e",
+            "hg-bots#patch-f"
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "5279795645ae5f5e3c4e0d3c"
+        },
+        "run_id": "hg-test",
+        "harvest_calculator_bout_length_in_minutes": 5,
+        "predation_penalty_length_in_seconds": 20,
+        "maximum_harvest": 3000,
+        "starving_threshold": 240,
+        "prospering_threshold": 270,
+        "patches": [
+            {
+                "patch_id": "patch-a",
+                "patch_label": "A",
+                "reader_id": 1,
+                "quality": "poor",
+                "quality_per_second": 10,
+                "quality_per_minute": 600,
+                "risk_label": "safe",
+                "risk_percent_per_second": 0.01
+            },
+            {
+                "patch_id": "patch-b",
+                "patch_label": "B",
+                "reader_id": 2,
+                "quality": "poor",
+                "quality_per_second": 10,
+                "quality_per_minute": 600,
+                "risk_label": "risky",
+                "risk_percent_per_second": 0.025
+            },
+            {
+                "patch_id": "patch-c",
+                "patch_label": "C",
+                "reader_id": 3,
+                "quality": "medium",
+                "quality_per_second": 15,
+                "quality_per_minute": 900,
+                "risk_label": "safe",
+                "risk_percent_per_second": 0.01
+            },
+            {
+                "patch_id": "patch-d",
+                "patch_label": "D",
+                "reader_id": 4,
+                "quality": "medium",
+                "quality_per_second": 15,
+                "quality_per_minute": 900,
+                "risk_label": "risky",
+                "risk_percent_per_second": 0.025
+            },
+            {
+                "patch_id": "patch-e",
+                "patch_label": "E",
+                "reader_id": 5,
+                "quality": "rich",
+                "quality_per_second": 20,
+                "quality_per_minute": 1200,
+                "risk_label": "safe",
+                "risk_percent_per_second": 0.0133
+            },
+            {
+                "patch_id": "patch-f",
+                "patch_label": "F",
+                "reader_id": 6,
+                "quality": "rich",
+                "quality_per_second": 20,
+                "quality_per_minute": 1200,
+                "risk_label": "risky",
+                "risk_percent_per_second": 0.025
+            }
+        ],
+        "bots": [
+            "hg-bots#master-hg-test",
+            "hg-bots#archiver-hg-test",
+            "hg-bots#patch-a",
+            "hg-bots#patch-b",
+            "hg-bots#patch-c",
+            "hg-bots#patch-d",
+            "hg-bots#patch-e",
+            "hg-bots#patch-f"
+        ]
+    }
+]
