@@ -30,6 +30,8 @@ public class DataAnalysis {
 	private static String DATA_FOLDER = "data/hg_fall_13/";
 	private static String OUTPUT_FOLDER = DATA_FOLDER + "out/";
 
+    private static boolean SPLIT = true;
+
 	// Dirty data
 	private Map<String, List<ObjectNode>> jsonLogFiles = new HashMap<>();
 	// Clean data
@@ -45,12 +47,15 @@ public class DataAnalysis {
 		DataAnalysis da = new DataAnalysis();
 		da.importData();
 		da.cleanData();
+        if (SPLIT)
+            da.splitBouts();
 		da.doAnalysis();
-		da.dumpToXLSX();
+        da.dumpToXLSX();
+
 	}
 
 
-	public void importData() {
+    public void importData() {
 		System.out.print("Importing data...");
 		jsonLogFiles.put("5ag", parseFile(DATA_FOLDER+"5ag_log.json"));
 		jsonLogFiles.put("5at", parseFile(DATA_FOLDER+"5at_log.json"));
@@ -112,6 +117,23 @@ public class DataAnalysis {
 		}
 	}
 
+    public void splitBouts() {
+        List<Bout> oldBouts = new ArrayList<>(bouts);
+        bouts.clear();
+        for (Bout b: oldBouts)
+            bouts.addAll(splitBout(b));
+    }
+
+    public List<Bout> splitBout(Bout b) {
+        List <Bout> splits = new ArrayList<>();
+        long split_ts = b.bout_start + (b.bout_stop - b.bout_start) / 2;
+        Bout lh = new Bout(b.run_id, b.habitat_configuration.name(), b.bout_id + "_a", b.bout_start, split_ts, b.getRawLogBetween(b.bout_start, split_ts));
+        Bout hh = new Bout(b.run_id, b.habitat_configuration.name(), b.bout_id + "_b", split_ts, b.bout_stop, b.getRawLogBetweenAndFix(split_ts, b.bout_stop));
+        splits.add(lh);
+        splits.add(hh);
+        return splits;
+    }
+
 
 	public void doAnalysis() {
 		System.out.print("Analyzing...");
@@ -128,14 +150,20 @@ public class DataAnalysis {
 		Workbook wb = new XSSFWorkbook();
 		FileOutputStream fileOut = null;
 		try {
-			fileOut = new FileOutputStream(OUTPUT_FOLDER + "hg_fall_13_per_student_data.xlsx");
+            if (SPLIT)
+			    fileOut = new FileOutputStream(OUTPUT_FOLDER + "hg_fall_13_per_student_data_split.xlsx");
+            else
+                fileOut = new FileOutputStream(OUTPUT_FOLDER + "hg_fall_13_per_student_data.xlsx");
 		} catch (FileNotFoundException e) {
 			System.out.println("Can't create the XLSX file, terminating");
 			System.exit(-1);
 		}
 		// One Worksheet per bout
 		for (Bout bout: bouts)
-			wb = dumpBoutStatsToXLSX(wb, bout);
+            if (SPLIT)
+                wb = dumpBoutStatsToXLSXSplit(wb, bout);
+            else
+			    wb = dumpBoutStatsToXLSX(wb, bout);
 		// Write and close file
 		try {
 			wb.write(fileOut);
@@ -162,6 +190,21 @@ public class DataAnalysis {
 		}
 		return wb;
 	}
+
+    private Workbook dumpBoutStatsToXLSXSplit(Workbook wb, Bout bout) {
+        String sheetName = bout.run_id + "_bout" + bout.bout_id;
+        Sheet sheet = wb.createSheet(sheetName);
+        sheet = addSheetHeader(sheet);
+        int i=0;
+        for (String tag_id : bout.results.cumulativeTimeAtPatchPerTag.keySet()) {
+            Row row = sheet.createRow(++i);
+            row.createCell(0).setCellValue(tag_id);
+            row = addTimesToSheet(row, bout.results.cumulativeTimeAtPatchPerTag.get(tag_id));
+            row = addHarvestsToSheet(row, bout.results.cumulativeHarvestAtPatchperTag.get(tag_id));
+            addTotalDeathsToSheet(row, bout.results.totalDeathsPerTag.get(tag_id));
+        }
+        return wb;
+    }
 
 
     private Sheet addSheetHeader(Sheet sheet) {
