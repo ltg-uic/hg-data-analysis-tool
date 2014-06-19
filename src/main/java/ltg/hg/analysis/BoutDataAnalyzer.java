@@ -1,13 +1,6 @@
 package ltg.hg.analysis;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import ltg.hg.analysis.Bout.BoutType;
 import ltg.hg.model.Patch;
@@ -32,12 +25,37 @@ public class BoutDataAnalyzer {
 	}
 
 	// Replays the bout and calculates the aggregates values that we need
-	public BoutDataAnalysisResults replayLogAndCalculateResults(long bout_start, long bout_stop, BoutType habitat_configuration, List<Event> rawLog) {
+	public BoutDataAnalysisResults replayLogAndCalculateResults(long bout_start, long bout_stop, BoutType habitat_configuration, List<Event> rawLog, String run_id, String bout_id) {
+        // TODO remove
+//        if (run_id.equals("5at") && bout_id.equals("2"))
+//            System.out.println("                      arg  baf  boz  dob  fot  gub  hap  jur  kep  mid  nar  pab  pha  ren  som  sug  tuz  wat  yim");
 		List<Event> consumableEvents = new ArrayList<>(rawLog);
 		for (long ts = bout_start; ts<bout_stop; ts++) {
 			List<Event> eventsAtTS = findEventsAtTS(ts, consumableEvents);
-			updateStats();
-			updateModel(habitat_configuration, eventsAtTS);
+			updateModel(eventsAtTS);
+            updateStats();
+            // TODO remove
+//            if (run_id.equals("5at") && bout_id.equals("2")) {
+//                double[] pap = {
+//                        patches.get("patch-a").peopleAtPatch,
+//                        patches.get("patch-b").peopleAtPatch,
+//                        patches.get("patch-c").peopleAtPatch,
+//                        patches.get("patch-d").peopleAtPatch,
+//                        patches.get("patch-e").peopleAtPatch,
+//                        patches.get("patch-f").peopleAtPatch
+//                };
+//                double[] yields = {
+//                        patches.get("patch-a").peopleAtPatch==0 ? 0.0d : Math.floor(patches.get("patch-a").richness / patches.get("patch-a").peopleAtPatch * 100) / 100,
+//                        patches.get("patch-b").peopleAtPatch==0 ? 0.0d : Math.floor(patches.get("patch-b").richness / patches.get("patch-b").peopleAtPatch * 100) / 100,
+//                        patches.get("patch-c").peopleAtPatch==0 ? 0.0d : Math.floor(patches.get("patch-c").richness / patches.get("patch-c").peopleAtPatch * 100) / 100,
+//                        patches.get("patch-d").peopleAtPatch==0 ? 0.0d : Math.floor(patches.get("patch-d").richness / patches.get("patch-d").peopleAtPatch * 100) / 100,
+//                        patches.get("patch-e").peopleAtPatch==0 ? 0.0d : Math.floor(patches.get("patch-e").richness / patches.get("patch-e").peopleAtPatch * 100) / 100,
+//                        patches.get("patch-f").peopleAtPatch==0 ? 0.0d : Math.floor(patches.get("patch-f").richness / patches.get("patch-f").peopleAtPatch * 100) / 100
+//                };
+//                //double tot = patches.get("patch-a").peopleAtPatch + patches.get("patch-b").peopleAtPatch + patches.get("patch-c").peopleAtPatch + patches.get("patch-d").peopleAtPatch + patches.get("patch-e").peopleAtPatch + patches.get("patch-f").peopleAtPatch;
+//                System.out.format(Arrays.toString(yields) +
+//                        "   %4.0f \n", tags.get("arg")==null ? 0.0d : tags.get("arg").getTotalHarvest(patches.keySet()));
+//            }
 			updateResults(ts);
 		}
 		composeResults();
@@ -45,17 +63,9 @@ public class BoutDataAnalyzer {
 		return results;
 	}
 
-	// Similarly to what is performed by the real time update thread
-	private void updateStats() {
-		for (Tag tag: tags.values()) {
-			tag.updateTimeAtPatch();
-			tag.updateTotalHarvest();
-		}
-	}
 
 	// Similarly to what is done through calls on the model
-	private void updateModel(BoutType habitat_configuration, List<Event> eventsAtTS) {
-		//System.out.println(eventsAtTS);
+	private void updateModel(List<Event> eventsAtTS) {
 		for (Event e: eventsAtTS) 
 			switch (e.action) {
 			case MOVE:
@@ -75,6 +85,14 @@ public class BoutDataAnalyzer {
 				break;
 			}
 	}
+
+    // Similarly to what is performed by the real time update thread
+    private void updateStats() {
+        for (Tag tag: tags.values()) {
+            tag.updateTimeAtPatch();
+            tag.updateTotalHarvest(patches);
+        }
+    }
 
 
 	private void updateResults(long ts) {

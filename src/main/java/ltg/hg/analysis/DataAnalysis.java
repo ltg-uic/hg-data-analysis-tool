@@ -69,7 +69,6 @@ public class DataAnalysis {
 
 	private void extractBouts(String run_id) {
 		long bout_start_ts = -1;
-		long bout_stop_ts = -1;
 		String bout_id = null;
 		String habitat_configuration = null;
 		List<Event> bout_log = null;
@@ -82,8 +81,7 @@ public class DataAnalysis {
 				bout_log = new ArrayList<>();
 				break;
 			case "stop_bout":
-				bout_stop_ts = getTs(item);
-				bouts.add(new Bout(run_id, habitat_configuration, bout_id, bout_start_ts, bout_stop_ts, bout_log));
+				bouts.add(new Bout(run_id, habitat_configuration, bout_id, bout_start_ts, getTs(item), bout_log));
 				break;
 			case "reset_bout":
 				break;

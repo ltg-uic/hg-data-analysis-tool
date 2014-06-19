@@ -36,8 +36,8 @@ public class Bout {
 	
 	// Performs thre data analysis
 	public void analyzeData() {
-		BoutDataAnalyzer analyzer = new BoutDataAnalyzer();
-		results =  analyzer.replayLogAndCalculateResults(bout_start, bout_stop, habitat_configuration, rawLog);
+        BoutDataAnalyzer analyzer = new BoutDataAnalyzer();
+		results =  analyzer.replayLogAndCalculateResults(bout_start, bout_stop, habitat_configuration, rawLog, run_id, bout_id);
 	}
 
 

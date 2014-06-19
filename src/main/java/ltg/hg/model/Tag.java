@@ -1,10 +1,6 @@
 package ltg.hg.model;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 
 public class Tag {
@@ -14,7 +10,6 @@ public class Tag {
 	
 	// Instantaneous attributes
 	public String current_location = null;
-	public double current_yield;
 	public boolean is_alive = true;	
 	
 	// Aggregates
@@ -30,7 +25,6 @@ public class Tag {
 	
 	public void setCurrentLocation(Patch patch) {
 		current_location = patch.id;
-		current_yield = patch.richness / patch.peopleAtPatch;
 	}
 	
 	
@@ -51,8 +45,9 @@ public class Tag {
 	}
 
 
-	public void updateTotalHarvest() {
+	public void updateTotalHarvest(LinkedHashMap<String, Patch> patches) {
 		if (is_alive) {
+            double current_yield = patches.get(current_location).richness / patches.get(current_location).peopleAtPatch;
 			harvest_at_patch.put(current_location, harvest_at_patch.get(current_location)==null ? current_yield : harvest_at_patch.get(current_location) + current_yield);
 		}
 	}
@@ -78,8 +73,16 @@ public class Tag {
 		}
 		return list;
 	}
-	
-	
+
+
+    public Double getTotalHarvest(Set<String> strings) {
+        double total_harvest = 0;
+        for (Double h : getPatchHarvests(strings))
+            total_harvest += h;
+        return total_harvest;
+    }
+
+
 	public static List<Double> fromMapToList(Map<String, Double> map, Set<String> patches) {
 		List<Double> list = new ArrayList<>();
 		for (String s: patches) {
