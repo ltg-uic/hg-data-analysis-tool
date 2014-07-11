@@ -35,6 +35,13 @@ public class BoutDataAnalysisResults {
 	// 	....
 	public Map<String, List<Double>> cumulativeHarvestAtPatchperTag = new LinkedHashMap<>();
 
+    // Total number of deaths per tag
+    //			| # Deaths
+    //  tuz 	|	2
+    // 	boz 	|	5
+    // 	....
+    public Map<String, Integer> totalDeathsPerTag = new LinkedHashMap<>();
+
 	// Bout lenght in seconds
 	public double bout_length_in_seconds = 0.0d;
 

@@ -1,11 +1,13 @@
 package ltg.hg.analysis;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Bout {
 
-	public enum BoutType {
+    public enum BoutType {
 		GAMEON, PREDAT
 	}
 
@@ -36,8 +38,8 @@ public class Bout {
 	
 	// Performs thre data analysis
 	public void analyzeData() {
-		BoutDataAnalyzer analyzer = new BoutDataAnalyzer();
-		results =  analyzer.replayLogAndCalculateResults(bout_start, bout_stop, habitat_configuration, rawLog);
+        BoutDataAnalyzer analyzer = new BoutDataAnalyzer();
+		results =  analyzer.replayLogAndCalculateResults(bout_start, bout_stop, habitat_configuration, rawLog, run_id, bout_id);
 	}
 
 
@@ -52,6 +54,32 @@ public class Bout {
 			prev_ts = e.ts;
 		}
 	}
+
+    public List<Event> getRawLogBetween(long start, long stop) {
+        List<Event> l = new ArrayList<>();
+        for (Event e : rawLog)
+            if (e.ts >= start && e.ts <= stop)
+                l.add(e);
+        return l;
+    }
+
+
+    public List<Event> getRawLogBetweenAndFix(long start, long stop) {
+        Map<String, String> tagLocation = new HashMap<>();
+        List<Event> buff = new ArrayList<>();
+        for (Event e : rawLog)
+            if (e.ts < start) {
+                if (e.action.equals(Event.ActionTypes.MOVE))
+                    tagLocation.put(e.id, e.arrival);
+            } else if (e.ts >= start && e.ts <= stop)
+                buff.add(e);
+        List<Event> l = new ArrayList<>();
+        for (String s: tagLocation.keySet())
+            l.add(new Event(start,s, null, tagLocation.get(s)));
+        l.addAll(buff);
+        return l;
+    }
+
 
 	@Override
 	public String toString() {
